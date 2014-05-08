@@ -1,0 +1,53 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Widget";
+    Layout = null;
+}
+
+<style type="text/css">
+    .overlayView {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        z-index: 9999;
+        font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+        font-weight: 200;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+        background: rgba(0,0,0,0.6);
+        perspective: 800;
+        -webkit-perspective: 800;
+        opacity: 0;
+    }
+
+    .overlayView.active {
+        -ms-opacity: 1;
+        opacity: 1;
+    }
+</style>
+
+<div class="overlayView active">
+    Hello world!
+</div>
+
+@*
+
+        .overlayView.active {
+    opacity: 1;
+    }
+
+        background: rgba(0,0,0,0.6);
+
+*@
+
+@*<iframe name="uvw-iframe-undefined" class="uvw-dialog-iframe uv-popover-iframe" style="display: block; background-color: transparent; border: none; width: 100%; height: 100%; visibility: visible; background-position: initial initial; background-repeat: initial initial;" allowtransparency="true" frameborder="0" src="https://widget.uservoice.com/omnibox/dbZ6ReER2DeipcoE76cibw?mode=contact&amp;accent_color=237ecc&amp;trigger_color=white&amp;trigger_background_color=d24d26&amp;embed_type=popover&amp;trigger_method=pin&amp;contact_enabled=true&amp;feedback_enabled=true&amp;smartvote=true&amp;referrer=http%3A%2F%2Fspectafy-stage.azurewebsites.net%2F">
+    
+</iframe>*@
