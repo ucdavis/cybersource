@@ -5,7 +5,8 @@
 <div class="jumbotron">
     <h1>Send a donation</h1>
     <p class="lead">Test site for using cybersource as a donation credit card processor</p>
-    <p><a href="@Url.Action("CustomerInfo", "Order")" class="btn btn-primary btn-large">Start donation &raquo;</a></p>
+    <p><a href="@Url.Action("CustomerInfo", "Order")" class="btn btn-primary btn-lg">Start donation &raquo;</a></p>
+    <p><a id="donate" href="#" class="btn btn-info">Give $20 now</a></p>
 </div>
 
 <div class="row">
@@ -29,3 +30,19 @@
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
 </div>
+
+<iframe id="widget" frameborder="0" allowtransparency="true" src="@Url.Action("Index", "Widget")" name="stripe_checkout_app" class="stripe_checkout_app"
+        style="z-index: 9999; display: none; background-color: transparent; border: 0px none transparent; overflow-x: hidden; overflow-y: auto;
+                                      visibility: visible; margin: 0px; padding: 0px; -webkit-tap-highlight-color: transparent; position: fixed; left: 0px; top: 0px; width: 100%; height: 100%;"></iframe>
+
+@section scripts
+{
+    <script>
+        $(function () {
+            $("#donate").on('click', function (e) {
+                e.preventDefault();
+                $("#widget").css('display', 'block');
+            });
+        });
+    </script>
+}
