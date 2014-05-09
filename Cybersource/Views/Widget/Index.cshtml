@@ -7,6 +7,15 @@
 
 <html>
     <head>
+        @Scripts.Render("~/bundles/jquery")
+        <script>
+            var $widget = $(parent.document.getElementById('widget'));
+            $(function () {
+                $(".close").on('click', function() {
+                    $widget.css('display', 'none');
+                });
+            });
+        </script>
         <link href="https://checkout.stripe.com/v3/checkout/desktop.css?version=hvwqnmNhaMPYEMeoD4oDFQ" rel="stylesheet" type="text/css" />
 
         <meta charset="utf-8">
