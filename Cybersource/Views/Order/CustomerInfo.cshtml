@@ -15,7 +15,7 @@
     <input type="hidden" name="signed_date_time" value="@DateTime.UtcNow.ToString("yyyy-mm-dd't'hh:mm:ss'z'")">
     <input type="hidden" name="locale" value="en">
     <input type="hidden" name="transaction_type" value="authorization">
-    <input type="hidden" name="reference_number">
+    <input type="hidden" name="reference_number" value="@DateTime.UtcNow.Ticks">
     <input type="hidden" name="payment_method" value="card"><br />
     <input type="hidden" name="currency" value="USD"><br />
     <fieldset>
@@ -84,6 +84,7 @@
         </div>
     </fieldset>
     <div class="form-group">
+        <input type="hidden" name="submit" value="Submit"/>
         <button type="submit" class="btn btn-primary">Payment --></button>
     </div>
 </form>
