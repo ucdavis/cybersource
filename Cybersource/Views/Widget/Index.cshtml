@@ -14,6 +14,18 @@
                 $(".close").on('click', function() {
                     $widget.css('display', 'none');
                 });
+                $("#submit-button").on('click', function(e) {
+                    e.preventDefault();
+                    var $el = $(this);
+                    if ($el.hasClass('iconContinue')) {
+                        $el.removeClass('iconContinue');
+                        $el.html('Donate $20');
+                        $("#paymentView").css('display', 'block');
+                        $("#infoView").css('display', 'none');
+                    } else {
+
+                    }
+                });
             });
         </script>
         <link href="https://checkout.stripe.com/v3/checkout/desktop.css?version=hvwqnmNhaMPYEMeoD4oDFQ" rel="stylesheet" type="text/css" />
@@ -356,7 +368,7 @@
                     </div>
                     <form class="checkoutView" method="POST" novalidate="true">
                         <div class="navigationView">
-                            <div class="layoutView" style="opacity: 1; -webkit-transition: none; transition: none; -webkit-transform: translateX(0px); overflow: inherit;">
+                            <div id="infoView" class="layoutView" style="opacity: 1; -webkit-transition: none; transition: none; -webkit-transform: translateX(0px); overflow: inherit;">
                                 <div class="emailInput baseRow" style="opacity: 1; -webkit-transition: none; transition: none; -webkit-transform: translateY(8px);">
                                     <div class="inner">
                                         <input type="email" id="email" x-autocompletetype="email" autocomplete="email" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Email">
@@ -656,7 +668,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="layoutView" style="display: none;">
+                            <div id="paymentView" class="layoutView" style="display: none;">
                                 <div class="errorRow baseRow" style="display: none; opacity: 0; -webkit-transition: none; transition: none; -webkit-transform: translateY(8px);">
                                     <div class="inner"><label>This card was declined</label></div>
                                 </div>
@@ -726,7 +738,7 @@
                         <div class="button" style="opacity: 1; -webkit-transition: none; transition: none; -webkit-transform: translateY(257px);">
                             <div class="inner">
                                 <button type="submit">
-                                    <span><span class="iconContinue" style="opacity: 1; -webkit-transition: none; transition: none;">Payment Info</span></span>
+                                    <span><span id="submit-button" class="iconContinue" style="opacity: 1; -webkit-transition: none; transition: none;">Payment Info</span></span>
                                     <div class="spinnerContainer" style="opacity: 0; display: none;">
                                         <div class="svgSpinner" style="width: 18px; height: 19px;">
                                             <svg version="1.1" viewBox="0 0 44 46" width="18" height="19">
