@@ -10,6 +10,10 @@ namespace Cybersource.Controllers
 {
     public class OrderController : Controller
     {
+        public ActionResult Quick()
+        {
+            return View();
+        }
         /// <summary>
         /// Get the customer info for a new order
         /// </summary>
@@ -32,6 +36,11 @@ namespace Cybersource.Controllers
             ViewBag.Signature = Security.sign(dictionary);
 
             return View();
+        }
+
+        public ActionResult Receipt()
+        {
+            return Content("receipt");
         }
 	}
 }
