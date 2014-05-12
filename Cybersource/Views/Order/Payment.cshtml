@@ -13,21 +13,6 @@
     }
     <input type="hidden" name="signature" value="@ViewBag.Signature" />
     <input type="hidden" name="locale" value="en">
-    <fieldset id="confirmation">
-        <legend>Signed Data Fields</legend>
-        <p>These fields have been signed on your server, and a signature has been generated.  This will detect tampering with these values as they pass through the consumers browser to the SASOP endpoint.</p>
-        <ul>
-            @foreach (var key in Request.Form.AllKeys)
-            {
-                <li>
-                    <span>@key -- @Request.Form[key]</span>
-                </li>
-            }
-            <li>
-                Signature: @ViewBag.Signature
-            </li>
-        </ul>
-    </fieldset>
     <fieldset>
         <legend>Credit Card Info</legend>
         <p>Card data fields are posted directly to CyberSource, together with the fields above.  These field names will need to be included in the unsigned_field_names.</p>
@@ -47,4 +32,19 @@
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Donate!</button>
     </div>
+    <fieldset id="confirmation">
+        <legend>Signed Data Fields</legend>
+        <p>These fields have been signed on your server, and a signature has been generated.  This will detect tampering with these values as they pass through the consumers browser to the SASOP endpoint.</p>
+        <ul>
+            @foreach (var key in Request.Form.AllKeys)
+            {
+                <li>
+                    <span>@key -- @Request.Form[key]</span>
+                </li>
+            }
+            <li>
+                Signature: @ViewBag.Signature
+            </li>
+        </ul>
+    </fieldset>
 </form>

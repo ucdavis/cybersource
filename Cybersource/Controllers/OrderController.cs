@@ -40,7 +40,7 @@ namespace Cybersource.Controllers
 
         public ActionResult Receipt()
         {
-            return Content("receipt");
+            return View();
         }
 	}
 }

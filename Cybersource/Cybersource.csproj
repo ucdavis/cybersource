@@ -224,6 +224,7 @@
     <Content Include="Views\Order\Payment.cshtml" />
     <Content Include="Views\Widget\Index.cshtml" />
     <Content Include="Views\Order\Quick.cshtml" />
+    <Content Include="Views\Order\Receipt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
