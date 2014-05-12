@@ -9,10 +9,10 @@
     <head>
         @Scripts.Render("~/bundles/jquery")
         <script>
-            var $widget = $(parent.document.getElementById('widget'));
+            //var $widget = $(parent.document.getElementById('widget'));
             $(function () {
                 $(".close").on('click', function() {
-                    $widget.css('display', 'none');
+                    //$widget.css('display', 'none');
                 });
                 $("#submit-button").on('click', function(e) {
                     e.preventDefault();
@@ -29,7 +29,7 @@
                         $("#paymentView").css('display', 'none');
                         $("#infoView").css('display', 'block');
                         $("#confirmationView").css('display', 'none');
-                        $widget.css('display', 'none');
+                        //$widget.css('display', 'none');
                    } else {
                         //submit!
                         //TODO: make this not terrible
