@@ -159,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FundController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\WidgetController.cs" />
@@ -225,6 +226,7 @@
     <Content Include="Views\Widget\Index.cshtml" />
     <Content Include="Views\Order\Quick.cshtml" />
     <Content Include="Views\Order\Receipt.cshtml" />
+    <Content Include="Views\Fund\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
