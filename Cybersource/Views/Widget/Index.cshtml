@@ -22,8 +22,20 @@
                         $el.html('Donate $20');
                         $("#paymentView").css('display', 'block');
                         $("#infoView").css('display', 'none');
-                    } else {
-
+                    } else if ($el.html() === 'Close') {
+                        //TODO: reset nicely
+                        $el.addClass('iconContinue');
+                        $el.html('Payment Info');
+                        $("#paymentView").css('display', 'none');
+                        $("#infoView").css('display', 'block');
+                        $("#confirmationView").css('display', 'none');
+                        $widget.css('display', 'none');
+                   } else {
+                        //submit!
+                        //TODO: make this not terrible
+                        $("#paymentView").css('display', 'none');
+                        $("#confirmationView").css('display', 'block');
+                        $el.html('Close');
                     }
                 });
             });
@@ -352,7 +364,7 @@
                         <div class="realBackground"></div>
                     </div>
                     <a class="close right"></a><a class="back" style="display: none;"></a>
-                    <div class="image"><img src="http://localhost:5543/content/honeybee.jpg"></div>
+                    <div class="image"><img src="@Url.Content("~/Content/honeybee.jpg")"></div>
                     <div style="padding: 40px 35px 13px 35px;">
                         <h1 style="text-align: center; font-size: 17px; font-weight: bold;">Honey Bee Fund</h1>
                         <h2 style="text-align: center; color: #5b5b65; font-size: 13px;">Donate $20.00 (<a href="@Url.Action("CustomerInfo", "Order")">more options &gt;&gt;</a>)</h2>
@@ -721,6 +733,19 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="confirmationView" class="layoutView" style="display: none;">
+                                <div class="errorRow baseRow" style="display: none; opacity: 0; -webkit-transition: none; transition: none; -webkit-transform: translateY(8px);">
+                                    <div class="inner"><label>This card was declined</label></div>
+                                </div>
+                                <div class="paymentInput baseRow" style="opacity: 1; -webkit-transition: none; transition: none; -webkit-transform: translateY(8px);">
+                                    <div class="inner">
+                                        <h3>Thank you for your donation!</h3>
+                                        <p>
+                                            A receipt will be emailed to you shortly
+                                        </p>
                                     </div>
                                 </div>
                             </div>
