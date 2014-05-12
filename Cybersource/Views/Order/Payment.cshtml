@@ -1,0 +1,50 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Payment";
+}
+
+<h2>Payment</h2>
+
+<form id="payment_confirmation" action="https://testsecureacceptance.cybersource.com/silent/pay" method="POST">
+    @foreach (var key in Request.Form.AllKeys)
+    {
+        <input type="hidden" name="@key" value="@Request.Form[key]" />
+    }
+    <input type="hidden" name="signature" value="@ViewBag.Signature" />
+    <input type="hidden" name="locale" value="en">
+    <fieldset>
+        <legend>Credit Card Info</legend>
+        <p>Card data fields are posted directly to CyberSource, together with the fields above.  These field names will need to be included in the unsigned_field_names.</p>
+        <div class="form-group">
+            <span>Card Type:</span>
+            <input type="text" name="card_type" class="form-control" value="001">
+        </div>
+        <div class="form-group">
+            <span>Card Number:</span>
+            <input type="text" name="card_number" class="form-control" value="4111111111111111">
+        </div>
+        <div class="form-group">
+            <span>Expiration Date:</span>
+            <input type="text" name="card_expiry_date" class="form-control" value="11-2020">
+        </div>
+    </fieldset>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Donate!</button>
+    </div>
+    <fieldset id="confirmation">
+        <legend>Signed Data Fields</legend>
+        <p>These fields have been signed on your server, and a signature has been generated.  This will detect tampering with these values as they pass through the consumers browser to the SASOP endpoint.</p>
+        <ul>
+            @foreach (var key in Request.Form.AllKeys)
+            {
+                <li>
+                    <span>@key -- @Request.Form[key]</span>
+                </li>
+            }
+            <li>
+                Signature: @ViewBag.Signature
+            </li>
+        </ul>
+    </fieldset>
+</form>
