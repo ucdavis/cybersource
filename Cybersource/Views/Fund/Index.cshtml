@@ -8,9 +8,48 @@
     <div class="col-md-12">
         <form>
             <div class="form-group">
-                <input class="form-control" placeholder="Search for funds" style="width: 100%; max-width: 100%;" />
+                <input id="search" class="form-control" placeholder="Search for funds" style="width: 100%; max-width: 100%;" />
             </div>
         </form>
+    </div>
+</div>
+<div id="results" class="row" style="display: none;">
+    <div class="col-md-10 col-lg-offset-1">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="http://giving.ucdavis.edu/local_resources/images/areas/icon_caes.gif" alt="CA&ES Fund">
+                    </a>
+                    <div class="media-body">
+                        <a href="@Url.Action("CustomerInfo", "Order")"><h3 class="media-heading">College of Ag</h3></a>
+                        The leading college of its kind in the nation, the College of Agricultural and Environmental Sciences addresses agricultural, environmental, and human sciences through cutting-edge research, top-ranked undergraduate and graduate education, and internationally recognized outreach programs.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="http://giving.ucdavis.edu/local_resources/images/areas/icon_cbs.gif" alt="CA&ES Fund">
+                    </a>
+                    <div class="media-body">
+                        <a href="@Url.Action("CustomerInfo", "Order")"><h3 class="media-heading">College of Biological Sciences</h3></a>
+                        The leading college of its kind in the nation, the College of Agricultural and Environmental Sciences addresses agricultural, environmental, and human sciences through cutting-edge research, top-ranked undergraduate and graduate education, and internationally recognized outreach programs.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="http://giving.ucdavis.edu/local_resources/images/areas/icon_engineering.gif" alt="CA&ES Fund">
+                    </a>
+                    <div class="media-body">
+                        <a href="@Url.Action("CustomerInfo", "Order")"><h3 class="media-heading">College of Engineering</h3></a>
+                        The leading college of its kind in the nation, the College of Agricultural and Environmental Sciences addresses agricultural, environmental, and human sciences through cutting-edge research, top-ranked undergraduate and graduate education, and internationally recognized outreach programs.
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -106,3 +145,21 @@
         </div>
     </div>
 </div>
+
+@section scripts
+{
+    <script>
+        $(function () {
+            var $results = $("#results");
+            $('#search').on('keyup', function () {
+                if (this.value.length >= 3 && $results.is(":not(:visible)")) {
+                    $results.slideDown();
+                }
+
+                if (this.value.length < 3 && $results.is(":visible")) {
+                    $results.slideUp();
+                }
+            });
+        });
+    </script>
+}
