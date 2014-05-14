@@ -4,90 +4,106 @@
     ViewBag.Title = "Your Info";
 }
 
-<h2>Your Info</h2>
-
-<form id="info-form" action="@Url.Action("Payment")" method="POST">
-    <input type="hidden" name="access_key" value="fd0f49af2d2d3e2e9abcf26be03e3215">
-    <input type="hidden" name="profile_id" value="59NXqwQ">
-    <input type="hidden" name="transaction_uuid" value="@Guid.NewGuid()">
-    <input type="hidden" name="signed_field_names" value="access_key,profile_id,transaction_uuid,signed_field_names,unsigned_field_names,signed_date_time,locale,transaction_type,reference_number,amount,recurring_frequency,recurring_amount,currency,payment_method,bill_to_forename,bill_to_surname,bill_to_email,bill_to_phone,bill_to_address_line1,bill_to_address_city,bill_to_address_state,bill_to_address_country,bill_to_address_postal_code">
-    <input type="hidden" name="unsigned_field_names" value="card_type,card_number,card_expiry_date">
-    <input type="hidden" name="signed_date_time" value="@DateTime.UtcNow.ToString("yyyy-MM-dd'T'HH:mm:ss'Z'")">
-    <input type="hidden" name="locale" value="en">
-    <input type="hidden" name="transaction_type" value="authorization">
-    <input type="hidden" name="reference_number" value="@DateTime.UtcNow.Ticks">
-    <input type="hidden" name="payment_method" value="card"><br />
-    <input type="hidden" name="currency" value="USD"><br />
-    <fieldset>
-        <legend>Gift Information</legend>
-        <div class="form-group">
-            <span>Recurring donation?</span>
-            <input type="checkbox" id="gifttype" />
-        </div>
-        <div class="form-group" id="onetime">
-            <span>Amount of Gift</span>
-            <div class="input-group">
-                <span class="input-group-addon">$</span>
-                <input type="number" name="amount" class="form-control" placeholder="amount" value="100.00">
+<div class="row">
+    <div class="col-md-4">
+        <div class="well well-sm" style="margin-top: 5em;">
+            <h2>UC Davis Annual Fund</h2>
+            <img src="http://giving.ucdavis.edu/local_resources/images/common/campaign_logo_281.gif" alt="Fund Image" />
+            <div style="margin-top: 2em;">
+                <p>Gifts to the Annual Fund advance the university’s mission in diverse ways, through:</p>
+                <ul>
+                    <li>Providing scholarships to deserving students, many who are first generation college students</li>
+                    <li>Attracting and retaining high-caliber faculty, especially those who are early in their careers</li>
+                    <li>Developing and maintaining innovative academic programs that enrich student life</li>
+                </ul>
             </div>
         </div>
-        <div class="form-group" id="subscription" style="display:none;">
-            <span>Amount of Gift</span>
-            <div class="input-group">
-                <span class="input-group-addon">$</span>
-                <input type="number" name="recurring_amount" class="form-control" placeholder="amount" value="100.00">
-            </div>
-            <span>Frequency</span>
-            <input type="text" name="recurring_frequency" class="form-control" value="monthly" readonly="readonly" />
-        </div>
-    </fieldset>
-    <fieldset>
-        <legend>Customer Info</legend>
-        <div class="form-group">
-            <span>First</span>
-            <input type="text" name="bill_to_forename" class="form-control" value="John" />
-        </div>
-        <div class="form-group">
-            <span>Last</span>
-            <input type="text" name="bill_to_surname" class="form-control" value="Doe" />
-        </div>
-        <div class="form-group">
-            <span>Email</span>
-            <input type="email" name="bill_to_email" class="form-control" value="null@cybersource.com" />
-        </div>
-        <div class="form-group">
-            <span>Phone</span>
-            <input type="tel" name="bill_to_phone" class="form-control" value="530-752-7777" />
-        </div>
-    </fieldset>
-    <fieldset>
-        <legend>Billing Info</legend>
-        <div class="form-group">
-            <span>Street Address</span>
-            <input type="text" name="bill_to_address_line1" class="form-control" value="1 Card Lane" />
-        </div>
-        <div class="form-group">
-            <span>City</span>
-            <input type="text" name="bill_to_address_city" class="form-control" value="My City" />
-        </div>
-        <div class="form-group">
-            <span>State</span>
-            <input type="text" name="bill_to_address_state" class="form-control" value="CA" />
-        </div>
-        <div class="form-group">
-            <span>Country</span>
-            <input type="text" name="bill_to_address_country" class="form-control" value="US" />
-        </div> 
-        <div class="form-group">
-            <span>Zip</span>
-            <input type="text" name="bill_to_address_postal_code" class="form-control" value="90210" />
-        </div>
-    </fieldset>
-    <div class="form-group">
-        <input type="hidden" name="submit" value="Submit"/>
-        <button type="submit" class="btn btn-primary">Payment --></button>
     </div>
-</form>
+    <div class="col-md-8">
+        <form id="info-form" action="@Url.Action("Payment")" method="POST">
+            <input type="hidden" name="access_key" value="fd0f49af2d2d3e2e9abcf26be03e3215">
+            <input type="hidden" name="profile_id" value="59NXqwQ">
+            <input type="hidden" name="transaction_uuid" value="@Guid.NewGuid()">
+            <input type="hidden" name="signed_field_names" value="access_key,profile_id,transaction_uuid,signed_field_names,unsigned_field_names,signed_date_time,locale,transaction_type,reference_number,amount,recurring_frequency,recurring_amount,currency,payment_method,bill_to_forename,bill_to_surname,bill_to_email,bill_to_phone,bill_to_address_line1,bill_to_address_city,bill_to_address_state,bill_to_address_country,bill_to_address_postal_code">
+            <input type="hidden" name="unsigned_field_names" value="card_type,card_number,card_expiry_date">
+            <input type="hidden" name="signed_date_time" value="@DateTime.UtcNow.ToString("yyyy-MM-dd'T'HH:mm:ss'Z'")">
+            <input type="hidden" name="locale" value="en">
+            <input type="hidden" name="transaction_type" value="authorization">
+            <input type="hidden" name="reference_number" value="@DateTime.UtcNow.Ticks">
+            <input type="hidden" name="payment_method" value="card"><br />
+            <input type="hidden" name="currency" value="USD"><br />
+            <fieldset>
+                <legend>Gift Information</legend>
+                <div class="form-group">
+                    <span>Recurring donation?</span>
+                    <input type="checkbox" id="gifttype" />
+                </div>
+                <div class="form-group" id="onetime">
+                    <span>Amount of Gift</span>
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="number" name="amount" class="form-control" placeholder="amount" value="100.00">
+                    </div>
+                </div>
+                <div class="form-group" id="subscription" style="display:none;">
+                    <span>Amount of Gift</span>
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="number" name="recurring_amount" class="form-control" placeholder="amount" value="100.00">
+                    </div>
+                    <span>Frequency</span>
+                    <input type="text" name="recurring_frequency" class="form-control" value="monthly" readonly="readonly" />
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Customer Info</legend>
+                <div class="form-group">
+                    <span>First</span>
+                    <input type="text" name="bill_to_forename" class="form-control" value="John" />
+                </div>
+                <div class="form-group">
+                    <span>Last</span>
+                    <input type="text" name="bill_to_surname" class="form-control" value="Doe" />
+                </div>
+                <div class="form-group">
+                    <span>Email</span>
+                    <input type="email" name="bill_to_email" class="form-control" value="null@cybersource.com" />
+                </div>
+                <div class="form-group">
+                    <span>Phone</span>
+                    <input type="tel" name="bill_to_phone" class="form-control" value="530-752-7777" />
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Billing Info</legend>
+                <div class="form-group">
+                    <span>Street Address</span>
+                    <input type="text" name="bill_to_address_line1" class="form-control" value="1 Card Lane" />
+                </div>
+                <div class="form-group">
+                    <span>City</span>
+                    <input type="text" name="bill_to_address_city" class="form-control" value="My City" />
+                </div>
+                <div class="form-group">
+                    <span>State</span>
+                    <input type="text" name="bill_to_address_state" class="form-control" value="CA" />
+                </div>
+                <div class="form-group">
+                    <span>Country</span>
+                    <input type="text" name="bill_to_address_country" class="form-control" value="US" />
+                </div>
+                <div class="form-group">
+                    <span>Zip</span>
+                    <input type="text" name="bill_to_address_postal_code" class="form-control" value="90210" />
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <input type="hidden" name="submit" value="Submit" />
+                <button type="submit" class="btn btn-primary">Payment --></button>
+            </div>
+        </form>        
+    </div>
+</div>
 
 @section scripts
 {
