@@ -4,47 +4,64 @@
     ViewBag.Title = "Payment";
 }
 
-<h2>Payment</h2>
-
-<form id="payment_confirmation" action="https://testsecureacceptance.cybersource.com/silent/pay" method="POST">
-    @foreach (var key in Request.Form.AllKeys)
-    {
-        <input type="hidden" name="@key" value="@Request.Form[key]" />
-    }
-    <input type="hidden" name="signature" value="@ViewBag.Signature" />
-    <input type="hidden" name="locale" value="en">
-    <fieldset>
-        <legend>Credit Card Info</legend>
-        <p>Card data fields are posted directly to CyberSource, together with the fields above.  These field names will need to be included in the unsigned_field_names.</p>
-        <div class="form-group">
-            <span>Card Type:</span>
-            <input type="text" name="card_type" class="form-control" value="001">
+<div class="row">
+    <div class="col-md-4">
+        <div class="well well-sm" style="margin-top: 5em;">
+            <h2>UC Davis Annual Fund</h2>
+            <img src="http://giving.ucdavis.edu/local_resources/images/common/campaign_logo_281.gif" alt="Fund Image" />
+            <div style="margin-top: 2em;">
+                <p>Gifts to the Annual Fund advance the university’s mission in diverse ways, through:</p>
+                <ul>
+                    <li>Providing scholarships to deserving students, many who are first generation college students</li>
+                    <li>Attracting and retaining high-caliber faculty, especially those who are early in their careers</li>
+                    <li>Developing and maintaining innovative academic programs that enrich student life</li>
+                </ul>
+            </div>
         </div>
-        <div class="form-group">
-            <span>Card Number:</span>
-            <input type="text" name="card_number" class="form-control" value="4111111111111111">
-        </div>
-        <div class="form-group">
-            <span>Expiration Date:</span>
-            <input type="text" name="card_expiry_date" class="form-control" value="11-2020">
-        </div>
-    </fieldset>
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Donate!</button>
     </div>
-    <fieldset id="confirmation">
-        <legend>Signed Data Fields</legend>
-        <p>These fields have been signed on your server, and a signature has been generated.  This will detect tampering with these values as they pass through the consumers browser to the SASOP endpoint.</p>
-        <ul>
+    <div class="col-md-8">
+        <form id="payment_confirmation" action="https://testsecureacceptance.cybersource.com/silent/pay" method="POST">
             @foreach (var key in Request.Form.AllKeys)
             {
-                <li>
-                    <span>@key -- @Request.Form[key]</span>
-                </li>
+                <input type="hidden" name="@key" value="@Request.Form[key]" />
             }
-            <li>
-                Signature: @ViewBag.Signature
-            </li>
-        </ul>
-    </fieldset>
-</form>
+            <input type="hidden" name="signature" value="@ViewBag.Signature" />
+            <input type="hidden" name="locale" value="en">
+            <br/><br/>
+            <fieldset>
+                <legend>Credit Card Info</legend>
+                <p>Card data fields are posted directly to CyberSource, together with the fields above.  These field names will need to be included in the unsigned_field_names.</p>
+                <div class="form-group">
+                    <span>Card Type:</span>
+                    <input type="text" name="card_type" class="form-control" value="001">
+                </div>
+                <div class="form-group">
+                    <span>Card Number:</span>
+                    <input type="text" name="card_number" class="form-control" value="4111111111111111">
+                </div>
+                <div class="form-group">
+                    <span>Expiration Date:</span>
+                    <input type="text" name="card_expiry_date" class="form-control" value="11-2020">
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Donate!</button>
+            </div>
+            <fieldset id="confirmation">
+                <legend>Signed Data Fields</legend>
+                <p>These fields have been signed on your server, and a signature has been generated.  This will detect tampering with these values as they pass through the consumers browser to the SASOP endpoint.</p>
+                <ul>
+                    @foreach (var key in Request.Form.AllKeys)
+                    {
+                        <li>
+                            <span>@key -- @Request.Form[key]</span>
+                        </li>
+                    }
+                    <li>
+                        Signature: @ViewBag.Signature
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+    </div>
+</div>
