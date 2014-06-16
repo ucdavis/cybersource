@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{1E2632EA-9905-4F53-A604-8A69C89E1EB9}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <AssemblyName>CyberSource.Clients</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="CyberSource.Base">
+      <HintPath>..\CyberSource.Base\obj\Debug\CyberSource.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="CyberSource.WSSecurity">
+      <HintPath>..\CyberSource.WSSecurity\obj\Debug\CyberSource.WSSecurity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CyberSource.Clients.NVPWebReference\NVPTransactionProcessor.cs" />
+    <Compile Include="CyberSource.Clients.NVPWebReference\NVPTransactionProcessorWse.cs" />
+    <Compile Include="CyberSource.Clients.NVPWebReference\runTransactionCompletedEventArgs.cs" />
+    <Compile Include="CyberSource.Clients.NVPWebReference\runTransactionCompletedEventHandler.cs" />
+    <Compile Include="CyberSource.Clients.Properties\Settings.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\Address.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\AFSReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\AFSService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\AirlineData.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\BankInfo.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\BankTransferRealTimeReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\BankTransferRealTimeService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\BankTransferRefundReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\BankTransferRefundService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\BankTransferReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\BankTransferService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\Batch.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\BillTo.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\BML.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\BusinessRules.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\Card.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\CCAuthReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\CCAuthReversalReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\CCAuthReversalService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\CCAuthService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\CCCaptureReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\CCCaptureService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\CCCreditReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\CCCreditService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\Check.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\DAVReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\DAVService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\DecisionManager.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\DecisionReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\DeniedPartiesMatch.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\DirectDebitMandateReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\DirectDebitMandateService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\DirectDebitRefundReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\DirectDebitRefundService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\DirectDebitReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\DirectDebitService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\DirectDebitValidateReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\DirectDebitValidateService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\ECCreditReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\ECCreditService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\ECDebitReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\ECDebitService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\ExportReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\ExportService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\FundingTotals.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\FundTransfer.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\FXQuote.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\FXRatesReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\FXRatesService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\GECC.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\Installment.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\InvoiceHeader.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\Item.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\JPO.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\Leg.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\MerchantDefinedData.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\MerchantSecureData.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\OtherTax.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PayerAuthEnrollReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PayerAuthEnrollService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PayerAuthValidateReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PayerAuthValidateService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PayPal.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PayPalButtonCreateReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PayPalButtonCreateService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PayPalCreditReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PayPalCreditService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PayPalPaymentReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PayPalPaymentService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PayPalPreapprovedPaymentReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PayPalPreapprovedPaymentService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PayPalPreapprovedUpdateReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PayPalPreapprovedUpdateService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PaySubscriptionCreateReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PaySubscriptionCreateService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PaySubscriptionEvent.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PaySubscriptionEventUpdateReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PaySubscriptionEventUpdateService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PaySubscriptionRetrieveReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PaySubscriptionRetrieveService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PaySubscriptionUpdateReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PaySubscriptionUpdateService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PinlessDebitReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PinlessDebitService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PinlessDebitValidateReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PinlessDebitValidateService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\Pos.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\ProfileReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\PurchaseTotals.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\RecurringSubscriptionInfo.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\ReplyMessage.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\RequestMessage.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\RequestReserved.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\RiskUpdateReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\RiskUpdateService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\RuleResultItem.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\runTransactionCompletedEventArgs.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\runTransactionCompletedEventHandler.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\ShipFrom.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\ShipTo.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\Subscription.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\TaxReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\TaxReplyItem.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\TaxService.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\TransactionProcessor.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\TransactionProcessorWse.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\UCAF.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\VoidReply.cs" />
+    <Compile Include="CyberSource.Clients.SoapWebReference\VoidService.cs" />
+    <Compile Include="CyberSource.Clients\AppSettings.cs" />
+    <Compile Include="CyberSource.Clients\BaseClient.cs" />
+    <Compile Include="CyberSource.Clients\Configuration.cs" />
+    <Compile Include="CyberSource.Clients\FaultException.cs" />
+    <Compile Include="CyberSource.Clients\NVPClient.cs" />
+    <Compile Include="CyberSource.Clients\SignException.cs" />
+    <Compile Include="CyberSource.Clients\SoapBodyException.cs" />
+    <Compile Include="CyberSource.Clients\SoapClient.cs" />
+    <Compile Include="CyberSource.Clients\XmlClient.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

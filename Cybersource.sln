@@ -1,9 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cybersource", "Cybersource\Cybersource.csproj", "{6A017EE1-0DFD-4A92-A36F-5F53B94805AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cybersource.Soap", "Cybersource.Soap\Cybersource.Soap.csproj", "{01235EB6-90A1-4C38-9984-797C95928B31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberSource.Base", "CyberSource.Base\CyberSource.Base.csproj", "{8B990CAB-A9DC-4A42-95A7-391B89A25BD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberSource.Clients", "CyberSource.Clients\CyberSource.Clients.csproj", "{1E2632EA-9905-4F53-A604-8A69C89E1EB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberSource.WSSecurity", "CyberSource.WSSecurity\CyberSource.WSSecurity.csproj", "{297DC51D-7D96-4C03-B34D-896333249B69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CybsWSSecurityIOP", "CybsWSSecurityIOP\CybsWSSecurityIOP.csproj", "{34142454-FB57-4021-9DE7-51CEC540799B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,26 @@ Global
 		{6A017EE1-0DFD-4A92-A36F-5F53B94805AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A017EE1-0DFD-4A92-A36F-5F53B94805AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A017EE1-0DFD-4A92-A36F-5F53B94805AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01235EB6-90A1-4C38-9984-797C95928B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01235EB6-90A1-4C38-9984-797C95928B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01235EB6-90A1-4C38-9984-797C95928B31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01235EB6-90A1-4C38-9984-797C95928B31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B990CAB-A9DC-4A42-95A7-391B89A25BD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B990CAB-A9DC-4A42-95A7-391B89A25BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B990CAB-A9DC-4A42-95A7-391B89A25BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B990CAB-A9DC-4A42-95A7-391B89A25BD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E2632EA-9905-4F53-A604-8A69C89E1EB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E2632EA-9905-4F53-A604-8A69C89E1EB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E2632EA-9905-4F53-A604-8A69C89E1EB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E2632EA-9905-4F53-A604-8A69C89E1EB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{297DC51D-7D96-4C03-B34D-896333249B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{297DC51D-7D96-4C03-B34D-896333249B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{297DC51D-7D96-4C03-B34D-896333249B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{297DC51D-7D96-4C03-B34D-896333249B69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34142454-FB57-4021-9DE7-51CEC540799B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34142454-FB57-4021-9DE7-51CEC540799B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34142454-FB57-4021-9DE7-51CEC540799B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34142454-FB57-4021-9DE7-51CEC540799B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
