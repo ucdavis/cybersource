@@ -45,9 +45,10 @@
     <Reference Include="CyberSource.WSSecurity">
       <HintPath>..\libs\CyberSource.WSSecurity.dll</HintPath>
     </Reference>
-    <Reference Include="CybsWSSecurityIOP">
+    <Reference Include="CybsWSSecurityIOP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7091342136fdb0df, processorArchitecture=MSIL">
       <HintPath>..\libs\CybsWSSecurityIOP.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.Web.Services3">
       <HintPath>..\packages\Microsoft.Web.Services3.3.0.0.0\lib\net20\Microsoft.Web.Services3.dll</HintPath>
@@ -77,7 +78,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="AppSettings.config" />
+    <None Include="keys\ucdavis_jpknoll.p12">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Service References\Transaction.Xml\Cybersource.Soap.Transaction.Xml.outputMessageOut.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -115,6 +118,11 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logs\empty.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
