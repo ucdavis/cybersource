@@ -6,7 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Services.Protocols;
 using CyberSource.Clients;
-using Cybersource.Soap.Transaction.Xml;
+//using Cybersource.Soap.Transaction.Xml;
+using CyberSource.Clients.SoapWebReference;
 
 namespace Cybersource.Soap
 {
