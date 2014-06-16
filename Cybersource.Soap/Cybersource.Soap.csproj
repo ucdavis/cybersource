@@ -30,45 +30,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Cybersource.Soap.Sample2</StartupObject>
+    <StartupObject>Cybersource.Soap.Sample</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CyberSource.Base">
-      <HintPath>..\libs\CyberSource.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="CyberSource.Clients">
-      <HintPath>..\libs\CyberSource.Clients.dll</HintPath>
-    </Reference>
-    <Reference Include="CyberSource.Clients.XmlSerializers">
-      <HintPath>..\libs\CyberSource.Clients.XmlSerializers.dll</HintPath>
-    </Reference>
-    <Reference Include="CyberSource.WSSecurity">
-      <HintPath>..\libs\CyberSource.WSSecurity.dll</HintPath>
-    </Reference>
-    <Reference Include="CybsWSSecurityIOP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7091342136fdb0df, processorArchitecture=MSIL">
-      <HintPath>..\libs\CybsWSSecurityIOP.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="Microsoft.Web.Services3">
-      <HintPath>..\packages\Microsoft.Web.Services3.3.0.0.0\lib\net20\Microsoft.Web.Services3.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Sample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sample2.cs" />
     <Compile Include="Service References\Transaction.Xml\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -80,10 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="keys\ucdavis_jpknoll.p12">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="AppSettings.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="packages.config" />
     <None Include="Service References\Transaction.Xml\Cybersource.Soap.Transaction.Xml.outputMessageOut.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -109,22 +81,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="COMASPLib">
-      <Guid>{D70C57BE-D647-489C-92F3-EAC6E1C0E1E8}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="logs\empty.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
