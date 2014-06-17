@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema xmlns="https://ebc.cybersource.com/ebc/reports/dtd/tdr_1_13.dtd" elementFormDefault="qualified" targetNamespace="https://ebc.cybersource.com/ebc/reports/dtd/tdr_1_13.dtd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="Report">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Requests" />
+      </xs:sequence>
+      <xs:attribute name="MerchantID" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="required" />
+      <xs:attribute name="ReportStartDate" type="xs:string" use="required" />
+      <xs:attribute name="ReportEndDate" type="xs:string" use="required" />
+      <xs:attribute name="Version" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Requests">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="Request" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="BillTo" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ShipTo" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Shipping" />
+        <xs:element ref="PaymentMethod" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="LineItems" />
+        <xs:element ref="ApplicationReplies" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="PaymentData" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="MerchantDefinedData" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="RiskData" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ProfileList" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="TravelData" />
+      </xs:sequence>
+      <xs:attribute name="MerchantReferenceNumber" type="xs:string" use="required" />
+      <xs:attribute name="RequestDate" type="xs:string" use="required" />
+      <xs:attribute name="RequestID" type="xs:string" use="required" />
+      <xs:attribute name="SubscriptionID" type="xs:string" />
+      <xs:attribute name="Source" type="xs:string" />
+      <xs:attribute name="User" type="xs:string" />
+      <xs:attribute name="Comments" type="xs:string" />
+      <xs:attribute name="TransactionReferenceNumber" type="xs:string" />
+      <xs:attribute name="PredecessorRequestID" type="xs:string" />
+      <xs:attribute name="eCommerceIndicator" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BillTo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FirstName" />
+        <xs:element ref="LastName" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="MiddleName" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="NameSuffix" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Address1" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Address2" />
+        <xs:element ref="City" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="State" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Zip" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CompanyName" />
+        <xs:element ref="Email" />
+        <xs:element ref="Country" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Title" />
+        <xs:element ref="Phone" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="IPAddress" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Hostname" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="UserName" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CustomerID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FirstName" type="xs:string" />
+  <xs:element name="LastName" type="xs:string" />
+  <xs:element name="MiddleName" type="xs:string" />
+  <xs:element name="NameSuffix" type="xs:string" />
+  <xs:element name="Address1" type="xs:string" />
+  <xs:element name="Address2" type="xs:string" />
+  <xs:element name="City" type="xs:string" />
+  <xs:element name="State" type="xs:string" />
+  <xs:element name="Zip" type="xs:string" />
+  <xs:element name="CompanyName" type="xs:string" />
+  <xs:element name="Email" type="xs:string" />
+  <xs:element name="Country" type="xs:string" />
+  <xs:element name="Title" type="xs:string" />
+  <xs:element name="Phone" type="xs:string" />
+  <xs:element name="IPAddress" type="xs:string" />
+  <xs:element name="Hostname" type="xs:string" />
+  <xs:element name="UserName" type="xs:string" />
+  <xs:element name="CustomerID" type="xs:string" />
+  <xs:element name="ShipTo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="FirstName" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="LastName" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Address1" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Address2" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="City" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="State" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Zip" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CompanyName" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Country" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Phone" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Shipping">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Method" />
+        <xs:element ref="Carrier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Method" type="xs:string" />
+  <xs:element name="Carrier" type="xs:string" />
+  <xs:element name="PaymentMethod">
+    <xs:complexType>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element ref="Card" />
+          <xs:element minOccurs="0" maxOccurs="1" ref="WalletType" />
+        </xs:sequence>
+        <xs:element ref="Check" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Card">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="AccountSuffix" />
+        <xs:element ref="ExpirationMonth" />
+        <xs:element ref="ExpirationYear" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="StartMonth" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="StartYear" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="IssueNumber" />
+        <xs:element ref="CardType" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="BoletoNumber" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CardCategory" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CardCategoryCode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccountSuffix" type="xs:string" />
+  <xs:element name="ExpirationMonth" type="xs:string" />
+  <xs:element name="ExpirationYear" type="xs:string" />
+  <xs:element name="StartMonth" type="xs:string" />
+  <xs:element name="StartYear" type="xs:string" />
+  <xs:element name="IssueNumber" type="xs:string" />
+  <xs:element name="CardType" type="xs:string" />
+  <xs:element name="BoletoNumber" type="xs:string" />
+  <xs:element name="CardCategory" type="xs:string" />
+  <xs:element name="CardCategoryCode" type="xs:string" />
+  <xs:element name="WalletType" type="xs:string" />
+  <xs:element name="Check">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="AccountSuffix" />
+        <xs:element ref="CheckNumber" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="MandateId" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="MandateType" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="SignatureDate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckNumber" type="xs:string" />
+  <xs:element name="MandateId" type="xs:string" />
+  <xs:element name="MandateType" type="xs:string" />
+  <xs:element name="SignatureDate" type="xs:string" />
+  <xs:element name="LineItems">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="LineItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LineItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FulfillmentType" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Quantity" />
+        <xs:element ref="UnitPrice" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="TaxAmount" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="MerchantProductSKU" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ProductName" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ProductCode" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="InvoiceNumber" />
+      </xs:sequence>
+      <xs:attribute name="Number" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FulfillmentType" type="xs:string" />
+  <xs:element name="Quantity" type="xs:string" />
+  <xs:element name="UnitPrice" type="xs:string" />
+  <xs:element name="TaxAmount" type="xs:string" />
+  <xs:element name="MerchantProductSKU" type="xs:string" />
+  <xs:element name="ProductCode" type="xs:string" />
+  <xs:element name="ProductName" type="xs:string" />
+  <xs:element name="InvoiceNumber" type="xs:string" />
+  <xs:element name="ApplicationReplies">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="ApplicationReply" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplicationReply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RCode" />
+        <xs:element ref="RFlag" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="RMsg" />
+      </xs:sequence>
+      <xs:attribute name="Name" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RCode" type="xs:string" />
+  <xs:element name="RFlag" type="xs:string" />
+  <xs:element name="RMsg" type="xs:string" />
+  <xs:element name="PaymentData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="PaymentRequestID" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="PaymentProcessor" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Amount" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CurrencyCode" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="TotalTaxAmount" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="AuthorizationType" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="AuthorizationCode" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="AVSResult" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="AVSResultMapped" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CVResult" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ProcessorResponseCode" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="PayerAuthenticationInfo" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="EventType" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="NumberOfInstallments" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ACHVerificationResult" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ACHVerificationResultMapped" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="GrandTotal" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="BalanceAmount" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="BalanceCurrencyCode" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="RequestedAmount" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="RequestedAmountCurrencyCode" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="EVEmail" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="EVEmailRaw" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="EVName" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="EVNameRaw" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="EVPhoneNumber" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="EVPhoneNumberRaw" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="EVStreet" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="EVStreetRaw" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="EVPostalCode" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="EVPostalCodeRaw" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="BinNumber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PaymentRequestID" type="xs:string" />
+  <xs:element name="PaymentProcessor" type="xs:string" />
+  <xs:element name="Amount" type="xs:string" />
+  <xs:element name="CurrencyCode" type="xs:string" />
+  <xs:element name="TotalTaxAmount" type="xs:string" />
+  <xs:element name="AuthorizationType" type="xs:string" />
+  <xs:element name="AuthorizationCode" type="xs:string" />
+  <xs:element name="AVSResult" type="xs:string" />
+  <xs:element name="AVSResultMapped" type="xs:string" />
+  <xs:element name="CVResult" type="xs:string" />
+  <xs:element name="ProcessorResponseCode" type="xs:string" />
+  <xs:element name="PayerAuthenticationInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="ECI" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="AAV_CAVV" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="XID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ECI" type="xs:string" />
+  <xs:element name="AAV_CAVV" type="xs:string" />
+  <xs:element name="XID" type="xs:string" />
+  <xs:element name="EventType" type="xs:string" />
+  <xs:element name="NumberOfInstallments" type="xs:string" />
+  <xs:element name="ACHVerificationResult" type="xs:string" />
+  <xs:element name="ACHVerificationResultMapped" type="xs:string" />
+  <xs:element name="GrandTotal" type="xs:string" />
+  <xs:element name="BalanceAmount" type="xs:string" />
+  <xs:element name="BalanceCurrencyCode" type="xs:string" />
+  <xs:element name="RequestedAmount" type="xs:string" />
+  <xs:element name="RequestedAmountCurrencyCode" type="xs:string" />
+  <xs:element name="EVEmail" type="xs:string" />
+  <xs:element name="EVEmailRaw" type="xs:string" />
+  <xs:element name="EVName" type="xs:string" />
+  <xs:element name="EVNameRaw" type="xs:string" />
+  <xs:element name="EVPhoneNumber" type="xs:string" />
+  <xs:element name="EVPhoneNumberRaw" type="xs:string" />
+  <xs:element name="EVStreet" type="xs:string" />
+  <xs:element name="EVStreetRaw" type="xs:string" />
+  <xs:element name="EVPostalCode" type="xs:string" />
+  <xs:element name="EVPostalCodeRaw" type="xs:string" />
+  <xs:element name="BinNumber" type="xs:string" />
+  <xs:element name="MerchantDefinedData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="field1" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field2" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field3" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field4" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field5" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field6" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field7" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field8" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field9" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field10" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field11" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field12" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field13" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field14" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field15" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field16" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field17" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field18" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field19" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="field20" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field1">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field2">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field3">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field4">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field5">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field6">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field7">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field8">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field9">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field10">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field11">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field12">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field13">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field14">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field15">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field16">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field17">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field18">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field19">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="field20">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="name" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RiskData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="Factors" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="HostSeverity" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Score" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="TimeLocal" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ConsumerPasswordProvided" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="LostPassword" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="RepeatCustomer" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CookiesAccepted" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ConsumerLoyalty" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ConsumerPromotions" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="GiftWrap" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ReturnsAccepted" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ProductRisk" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="AppliedThreshold" />
+        <xs:element ref="AppliedTimeHedge" />
+        <xs:element ref="AppliedVelocityHedge" />
+        <xs:element ref="AppliedHostHedge" />
+        <xs:element ref="AppliedCategoryGift" />
+        <xs:element ref="AppliedCategoryTime" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="AppliedAVS" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="AppliedCV" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="BinAccountType" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="BinScheme" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="BinIssuer" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="BinCountry" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="IPCity" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="IPCountry" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="IPRoutingMethod" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="IPState" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="DeviceFingerprint" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CookiesEnabled" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="FlashEnabled" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ImagesEnabled" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="JavascriptEnabled" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ProxyIPAddress" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ProxyIPAddressActivities" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ProxyIPAddressAttributes" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ProxyServerType" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="TrueIPAddress" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="TrueIPAddressActivities" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="TrueIPAddressAttributes" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="TrueIPAddressCountry" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="TrueIPAddressCity" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="InfoCodes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Factors" type="xs:string" />
+  <xs:element name="HostSeverity" type="xs:string" />
+  <xs:element name="Score" type="xs:string" />
+  <xs:element name="TimeLocal" type="xs:string" />
+  <xs:element name="ConsumerPasswordProvided" type="xs:string" />
+  <xs:element name="LostPassword" type="xs:string" />
+  <xs:element name="RepeatCustomer" type="xs:string" />
+  <xs:element name="CookiesAccepted" type="xs:string" />
+  <xs:element name="ConsumerLoyalty" type="xs:string" />
+  <xs:element name="ConsumerPromotions" type="xs:string" />
+  <xs:element name="GiftWrap" type="xs:string" />
+  <xs:element name="ReturnsAccepted" type="xs:string" />
+  <xs:element name="ProductRisk" type="xs:string" />
+  <xs:element name="AppliedThreshold" type="xs:string" />
+  <xs:element name="AppliedTimeHedge" type="xs:string" />
+  <xs:element name="AppliedVelocityHedge" type="xs:string" />
+  <xs:element name="AppliedHostHedge" type="xs:string" />
+  <xs:element name="AppliedCategoryGift" type="xs:string" />
+  <xs:element name="AppliedCategoryTime" type="xs:string" />
+  <xs:element name="AppliedAVS" type="xs:string" />
+  <xs:element name="AppliedCV" type="xs:string" />
+  <xs:element name="BinAccountType" type="xs:string" />
+  <xs:element name="BinScheme" type="xs:string" />
+  <xs:element name="BinIssuer" type="xs:string" />
+  <xs:element name="BinCountry" type="xs:string" />
+  <xs:element name="IPCity" type="xs:string" />
+  <xs:element name="IPCountry" type="xs:string" />
+  <xs:element name="IPRoutingMethod" type="xs:string" />
+  <xs:element name="IPState" type="xs:string" />
+  <xs:element name="DeviceFingerprint" type="xs:string" />
+  <xs:element name="CookiesEnabled" type="xs:string" />
+  <xs:element name="FlashEnabled" type="xs:string" />
+  <xs:element name="ImagesEnabled" type="xs:string" />
+  <xs:element name="JavascriptEnabled" type="xs:string" />
+  <xs:element name="ProxyIPAddress" type="xs:string" />
+  <xs:element name="ProxyIPAddressActivities" type="xs:string" />
+  <xs:element name="ProxyIPAddressAttributes" type="xs:string" />
+  <xs:element name="ProxyServerType" type="xs:string" />
+  <xs:element name="TrueIPAddress" type="xs:string" />
+  <xs:element name="TrueIPAddressActivities" type="xs:string" />
+  <xs:element name="TrueIPAddressAttributes" type="xs:string" />
+  <xs:element name="TrueIPAddressCountry" type="xs:string" />
+  <xs:element name="TrueIPAddressCity" type="xs:string" />
+  <xs:element name="InfoCodes">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element ref="InfoCode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InfoCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="CodeType" />
+        <xs:element ref="CodeValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CodeValue" type="xs:string" />
+  <xs:element name="CodeType" type="xs:string" />
+  <xs:element name="ProfileList">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element ref="Profile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Profile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ProfileMode" />
+        <xs:element ref="ProfileDecision" />
+        <xs:element ref="RuleList" />
+      </xs:sequence>
+      <xs:attribute name="Name" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProfileMode" type="xs:string" />
+  <xs:element name="ProfileDecision" type="xs:string" />
+  <xs:element name="RuleList">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="Rule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Rule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RuleName" />
+        <xs:element ref="RuleDecision" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RuleName" type="xs:string" />
+  <xs:element name="RuleDecision" type="xs:string" />
+  <xs:element name="TravelData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TripInfo" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="PassengerInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TripInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="CompleteRoute" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="JourneyType" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="DepartureDateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompleteRoute" type="xs:string" />
+  <xs:element name="JourneyType" type="xs:string" />
+  <xs:element name="DepartureDateTime" type="xs:string" />
+  <xs:element name="PassengerInfo">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="Passenger" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Passenger">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="PassengerFirstName" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="PassengerLastName" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="PassengerID" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="PassengerStatus" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="PassengerType" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="PassengerPhone" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="PassengerEmail" />
+      </xs:sequence>
+      <xs:attribute name="Number" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PassengerFirstName" type="xs:string" />
+  <xs:element name="PassengerLastName" type="xs:string" />
+  <xs:element name="PassengerID" type="xs:string" />
+  <xs:element name="PassengerStatus" type="xs:string" />
+  <xs:element name="PassengerType" type="xs:string" />
+  <xs:element name="PassengerPhone" type="xs:string" />
+  <xs:element name="PassengerEmail" type="xs:string" />
+</xs:schema>
