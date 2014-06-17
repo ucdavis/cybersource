@@ -32,7 +32,6 @@ namespace Cybersource.Reports.Rest
         }
 
         #region daily reports
-
         public async Task<PaymentBatchDetailReport.Report> GetPaymentBatchDetailReport(DateTime date)
         {
             // fetch content
@@ -79,6 +78,7 @@ namespace Cybersource.Reports.Rest
         }
         #endregion
 
+        #region query reports
         public async Task<TransactionDetailReport.Report> GetTransactionDetailReport(string transactionId)
         {
             // form data
@@ -104,7 +104,7 @@ namespace Cybersource.Reports.Rest
             // deserialize
             return DeserializeReport<TransactionDetailReport.Report>(content);
         }
-
+        #endregion
 
         private async Task<string> GetClientApiReport(string reportName, DateTime date)
         {
