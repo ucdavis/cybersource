@@ -30,6 +30,10 @@ namespace Cybersource.Reports.Rest
             _username = username;
             _password = password;
         }
+
+        #region daily reports
+        public async Task<>
+
         public async Task<PaymentEventsReport.Report> GetPaymentEventsReport(DateTime date)
         {
             // fetch content
@@ -56,6 +60,9 @@ namespace Cybersource.Reports.Rest
             //deserialize
             return DeserializeReport<SubscriptionDetailReport.Report>(content);
         }
+
+        public async Task<>
+        #endregion
 
         public async Task<TransactionDetailReport.Report> GetTransactionDetailReport(string transactionId)
         {

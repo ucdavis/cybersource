@@ -1,0 +1,46 @@
+<!ELEMENT Report (Requests)>
+<!ATTLIST Report Name CDATA #REQUIRED
+                 Version NMTOKEN #REQUIRED
+                 xmlns CDATA #REQUIRED
+                 MerchantID CDATA #REQUIRED
+                 ReportStartDate CDATA #REQUIRED
+                 ReportEndDate CDATA #REQUIRED>
+<!ELEMENT Requests (Request)*>
+<!ELEMENT Request (BasicInformation, PaymentData, PaymentMethod, ErrorInformation, BillTo?, ShipTo?)>
+<!ELEMENT BasicInformation (RequestID, TransactionDate, MerchantReferenceNumber, TransactionReferenceNumber?, TransactionType, OriginalRequestID)>
+<!ELEMENT RequestID (#PCDATA)> 
+<!ELEMENT TransactionDate (#PCDATA)>
+<!ELEMENT MerchantReferenceNumber (#PCDATA)>
+<!ELEMENT TransactionReferenceNumber (#PCDATA)>
+<!ELEMENT TransactionType (#PCDATA)>
+<!ELEMENT OriginalRequestID (#PCDATA)>
+<!ELEMENT PaymentData (Amount, CurrencyCode?)>
+<!ELEMENT Amount (#PCDATA)>
+<!ELEMENT CurrencyCode (#PCDATA)>
+<!ELEMENT PaymentMethod (AccountSuffix?, BankCode?, BankAccountName?, ExpirationMonth?, ExpirationYear?, CardType?)>
+<!ELEMENT AccountSuffix (#PCDATA)>
+<!ELEMENT BankCode (#PCDATA)>
+<!ELEMENT BankAccountName (#PCDATA)>
+<!ELEMENT ExpirationMonth (#PCDATA)>
+<!ELEMENT ExpirationYear (#PCDATA)>
+<!ELEMENT CardType (#PCDATA)>
+<!ELEMENT ErrorInformation (PaymentProcessor?, Action?, ErrorCategory?, ErrorMessage?, ReasonCode?,ProcessorResponseCode?)>
+<!ELEMENT PaymentProcessor (#PCDATA)>
+<!ELEMENT Action (#PCDATA)>
+<!ELEMENT ErrorCategory (#PCDATA)>
+<!ELEMENT ErrorMessage (#PCDATA)>
+<!ELEMENT ReasonCode (#PCDATA)>
+<!ELEMENT ProcessorResponseCode (#PCDATA)>
+<!ELEMENT BillTo (FirstName?, LastName?, Address1?, Address2?, City?, State?, PostalCode?, Country?, CompanyName?, Email?, Phone?)>
+<!ELEMENT FirstName (#PCDATA)>
+<!ELEMENT LastName (#PCDATA)>
+<!ELEMENT Address1 (#PCDATA)>
+<!ELEMENT Address2 (#PCDATA)>
+<!ELEMENT City (#PCDATA)>
+<!ELEMENT State (#PCDATA)>
+<!ELEMENT PostalCode (#PCDATA)>
+<!ELEMENT Country (#PCDATA)>
+<!ELEMENT CompanyName (#PCDATA)>
+<!ELEMENT Email (#PCDATA)>
+<!ELEMENT Phone (#PCDATA)>
+<!ELEMENT ShipTo (FirstName?, LastName?, Address1?, Address2?, City?, State?, PostalCode?, Country?)>

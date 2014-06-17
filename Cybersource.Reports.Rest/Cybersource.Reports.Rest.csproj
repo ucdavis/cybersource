@@ -56,10 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\pbdr_1_2.cs" />
     <Compile Include="classes\per_1_2.cs" />
     <Compile Include="classes\psdr.cs" />
     <Compile Include="classes\sdr.cs" />
     <Compile Include="classes\tdr_1_13.cs" />
+    <Compile Include="classes\tedr.cs" />
     <Compile Include="ReportService.cs" />
     <Compile Include="Sample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,7 +81,11 @@
     <None Include="dtd\subscriptionsearch.dtd" />
     <None Include="dtd\tdr_1_13.dtd" />
     <None Include="dtd\tdr_1_5.dtd" />
+    <None Include="dtd\tedr.dtd" />
     <None Include="packages.config" />
+    <None Include="xsd\pbdr_1_2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="xsd\per_1_2.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -90,6 +96,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="xsd\tdr_1_13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="xsd\tedr.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
