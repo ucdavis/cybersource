@@ -1,0 +1,48 @@
+<!ELEMENT Report (Requests)>
+<!ATTLIST Report Name CDATA #REQUIRED
+                 Version NMTOKEN #REQUIRED
+                 xmlns CDATA #REQUIRED
+                 MerchantID NMTOKEN #REQUIRED
+                 ReportStartDate NMTOKEN #REQUIRED
+                 ReportEndDate NMTOKEN #REQUIRED>
+<!ELEMENT Requests (Request*)>
+<!ELEMENT Request (BankTransfer*, CreditCard*, DirectDebit*, Check*, PayPal*, Payment*)>
+<!ATTLIST Request RequestID CDATA #REQUIRED
+		  TransactionDate CDATA #REQUIRED
+          MerchantReferenceNumber CDATA #REQUIRED>
+<!ELEMENT BankTransfer (TransactionReferenceNumber, MerchantCurrencyCode, MerchantAmount, ConsumerCurrencyCode, ConsumerAmount, ProcessorMessage?, Exception?, BoletoNumber?, PaymentTypeDescription )>
+<!ATTLIST BankTransfer Event CDATA #REQUIRED
+                       EventDate NMTOKEN #REQUIRED>
+<!ELEMENT TransactionReferenceNumber (#PCDATA)>
+<!ELEMENT MerchantCurrencyCode (#PCDATA)>
+<!ELEMENT MerchantAmount (#PCDATA)>
+<!ELEMENT ConsumerCurrencyCode (#PCDATA)>
+<!ELEMENT ConsumerAmount (#PCDATA)>
+<!ELEMENT ProcessorMessage (#PCDATA)>
+<!ELEMENT Exception (#PCDATA)>
+<!ELEMENT BoletoNumber (#PCDATA)>
+<!ELEMENT PaymentTypeDescription (#PCDATA)>
+
+<!ELEMENT DirectDebit (TransactionReferenceNumber, MerchantCurrencyCode, MerchantAmount, ConsumerCurrencyCode, ConsumerAmount, ProcessorMessage?, PaymentTypeDescription)>
+<!ATTLIST DirectDebit Event CDATA #REQUIRED
+                      EventDate NMTOKEN #REQUIRED>
+
+<!ELEMENT CreditCard (TransactionReferenceNumber, MerchantCurrencyCode, MerchantAmount, ConsumerCurrencyCode, ConsumerAmount, ProcessorMessage?, PaymentTypeDescription)>
+<!ATTLIST CreditCard Event CDATA #REQUIRED
+                     EventDate NMTOKEN #REQUIRED>
+
+<!ELEMENT Payment (TransactionReferenceNumber, MerchantCurrencyCode, MerchantAmount, ConsumerCurrencyCode, ConsumerAmount, FeeCurrencyCode, FeeAmount, ProcessorMessage?, PaymentTypeDescription)>
+<!ATTLIST Payment Event CDATA #REQUIRED
+                     EventDate NMTOKEN #REQUIRED>
+
+<!ELEMENT Check (DebitIndicator?, TransactionID?, TransactionReferenceNumber, MerchantCurrencyCode, MerchantAmount, ConsumerCurrencyCode, ConsumerAmount, FeeCurrencyCode, FeeAmount, ProcessorMessage?, PaymentTypeDescription)>
+<!ATTLIST Check Event CDATA #REQUIRED
+                EventDate NMTOKEN #REQUIRED>
+<!ELEMENT DebitIndicator (#PCDATA)>
+<!ELEMENT TransactionID (#PCDATA)>
+<!ELEMENT FeeCurrencyCode (#PCDATA)>
+<!ELEMENT FeeAmount (#PCDATA)>
+
+<!ELEMENT PayPal (TransactionReferenceNumber, MerchantCurrencyCode?, MerchantAmount, ConsumerCurrencyCode, ConsumerAmount, FeeCurrencyCode, FeeAmount, ProcessorMessage?, PaymentTypeDescription)>
+<!ATTLIST PayPal Event CDATA #REQUIRED
+                 EventDate NMTOKEN #REQUIRED>

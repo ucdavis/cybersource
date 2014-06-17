@@ -1,0 +1,33 @@
+<!ELEMENT Subscriptions (CurrencyTotals, Subscription*)>
+<!ATTLIST Subscriptions
+  startDate CDATA #IMPLIED
+  endDate CDATA #IMPLIED>
+<!ELEMENT CurrencyTotals (TotalCount, CurrencyTotal*)>
+<!ELEMENT TotalCount (#PCDATA)>
+<!ELEMENT CurrencyTotal (Count, CurrencyCode, Amount)>
+<!ELEMENT Count (#PCDATA)>
+<!ELEMENT Subscription (SubscriptionID, Title?, BillLastName, BillFirstName, SubscriptionType, Frequency?, SubscriptionAmount, SubscriptionCurrencyCode, CreateDate,
+  StartDate, EndDate?, NextScheduledPaymentDate?, NumberOfPaymentsInRetryMode?, CardExpirationDate?,
+  NumberOfSuccessfulPayments?, AmountOfSuccessfulPayments?, Status, OriginatorMID, MerchantReferenceNumber)>
+<!ELEMENT BillFirstName (#PCDATA)>
+<!ELEMENT BillLastName (#PCDATA)>
+<!ELEMENT SubscriptionID (#PCDATA)>
+<!ELEMENT Title (#PCDATA)>
+<!ELEMENT SubscriptionType (#PCDATA)>
+<!ELEMENT Frequency (#PCDATA)>
+<!ELEMENT SubscriptionAmount (#PCDATA)>
+<!ELEMENT SubscriptionCurrencyCode (#PCDATA)>
+<!ELEMENT Amount (#PCDATA)>
+<!ELEMENT CurrencyCode (#PCDATA)>
+<!ELEMENT CreateDate (#PCDATA)>
+<!ELEMENT CancelledDate (#PCDATA)>
+<!ELEMENT StartDate (#PCDATA)>
+<!ELEMENT EndDate (#PCDATA)>
+<!ELEMENT NextScheduledPaymentDate (#PCDATA)>
+<!ELEMENT NumberOfPaymentsInRetryMode (#PCDATA)>
+<!ELEMENT CardExpirationDate (#PCDATA)>
+<!ELEMENT NumberOfSuccessfulPayments (#PCDATA)>
+<!ELEMENT AmountOfSuccessfulPayments (#PCDATA)>
+<!ELEMENT Status (#PCDATA)>
+<!ELEMENT OriginatorMID (#PCDATA)>
+<!ELEMENT MerchantReferenceCode (#PCDATA)>
