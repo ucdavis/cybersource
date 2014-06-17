@@ -12,11 +12,16 @@ namespace Cybersource.Reports.Rest
 {
     class Sample
     {
-        
+        private static string _username;
+        private static string _password;
 
         static void Main(string[] args)
         {
+            _username = ConfigurationManager.AppSettings["username"];
+            _password = ConfigurationManager.AppSettings["password"];
+
             StaticReport();
+            DemandReport();
             QueryReport();
 
             Console.WriteLine("Hit ENTER to exit...");
@@ -25,9 +30,8 @@ namespace Cybersource.Reports.Rest
 
         static async void StaticReport()
         {
-            var reportService = new ReportService("https://ebctest.cybersource.com/ebctest/")
+            var reportService = new ReportService("https://ebctest.cybersource.com/ebctest/", _username, _password)
             {
-                Credentials = GetCredentials(),
                 MerchantId = "ucdavis_jpknoll"
             };
 
@@ -35,7 +39,28 @@ namespace Cybersource.Reports.Rest
             
             try
             {
-                var report = reportService.GetPaymentEventsReport(yesterday);
+                var report = await reportService.GetPaymentEventsReport(yesterday);
+
+                Console.Write(report);
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
+        }
+
+        static async void DemandReport()
+        {
+            var reportService = new ReportService("https://ebctest.cybersource.com/ebctest/", _username, _password)
+            {
+                MerchantId = "ucdavis_jpknoll"
+            };
+
+            var yesterday = DateTime.Today - TimeSpan.FromDays(1);
+
+            try
+            {
+                var report = await reportService.GetSubscriptionDetailReport(yesterday);
 
                 Console.Write(report);
             }
@@ -47,15 +72,14 @@ namespace Cybersource.Reports.Rest
 
         static async void QueryReport()
         {
-            var reportService = new ReportService("https://ebctest.cybersource.com/ebctest/")
+            var reportService = new ReportService("https://ebctest.cybersource.com/ebctest/", _username, _password)
             {
-                Credentials = GetCredentials(),
                 MerchantId = "ucdavis_jpknoll"
             };
 
             try
             {
-                var report = reportService.GetTransactionDetailReport("4029572250300176056442");
+                var report = await reportService.GetTransactionDetailReport("4029572250300176056442");
 
                 Console.Write(report);
             }
@@ -63,20 +87,6 @@ namespace Cybersource.Reports.Rest
             {
                 Console.Write(e.Message);
             }
-        }
-
-        
-
-        private static AuthenticationHeaderValue GetCredentials()
-        {
-            // basic authentication
-            var username = ConfigurationManager.AppSettings["username"];
-            var password = ConfigurationManager.AppSettings["password"];
-            var credentials = new AuthenticationHeaderValue("Basic",
-                Convert.ToBase64String(Encoding.ASCII.GetBytes(
-                    String.Format("{0}:{1}", username, password))));
-
-            return credentials;
         }
     }
 }
