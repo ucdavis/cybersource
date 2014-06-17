@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="Windows-1252"?>
-<xs:schema xmlns="http://tempuri.org/per_1_2" elementFormDefault="qualified" targetNamespace="http://tempuri.org/per_1_2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd" elementFormDefault="qualified" targetNamespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="Report">
     <xs:complexType>
       <xs:sequence>

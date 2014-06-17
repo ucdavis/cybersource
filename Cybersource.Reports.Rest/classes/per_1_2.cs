@@ -20,8 +20,8 @@ namespace Cybersource.Reports.Rest.PaymentEventsReport {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/per_1_2")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://tempuri.org/per_1_2", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd", IsNullable=false)]
     public partial class Report {
         
         private Request[] requestsField;
@@ -108,8 +108,8 @@ namespace Cybersource.Reports.Rest.PaymentEventsReport {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/per_1_2")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://tempuri.org/per_1_2", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd", IsNullable=false)]
     public partial class Request {
         
         private BankTransfer[] bankTransferField;
@@ -235,8 +235,8 @@ namespace Cybersource.Reports.Rest.PaymentEventsReport {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/per_1_2")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://tempuri.org/per_1_2", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd", IsNullable=false)]
     public partial class BankTransfer {
         
         private string transactionReferenceNumberField;
@@ -379,8 +379,8 @@ namespace Cybersource.Reports.Rest.PaymentEventsReport {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/per_1_2")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://tempuri.org/per_1_2", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd", IsNullable=false)]
     public partial class CreditCard {
         
         private string transactionReferenceNumberField;
@@ -499,8 +499,8 @@ namespace Cybersource.Reports.Rest.PaymentEventsReport {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/per_1_2")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://tempuri.org/per_1_2", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd", IsNullable=false)]
     public partial class DirectDebit {
         
         private string transactionReferenceNumberField;
@@ -619,8 +619,8 @@ namespace Cybersource.Reports.Rest.PaymentEventsReport {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/per_1_2")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://tempuri.org/per_1_2", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd", IsNullable=false)]
     public partial class Check {
         
         private string debitIndicatorField;
@@ -787,8 +787,8 @@ namespace Cybersource.Reports.Rest.PaymentEventsReport {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/per_1_2")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://tempuri.org/per_1_2", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd", IsNullable=false)]
     public partial class PayPal {
         
         private string transactionReferenceNumberField;
@@ -931,8 +931,8 @@ namespace Cybersource.Reports.Rest.PaymentEventsReport {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/per_1_2")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://tempuri.org/per_1_2", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd", IsNullable=false)]
     public partial class Payment {
         
         private string transactionReferenceNumberField;
@@ -1075,8 +1075,8 @@ namespace Cybersource.Reports.Rest.PaymentEventsReport {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://tempuri.org/per_1_2")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://tempuri.org/per_1_2", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="https://ebc.cybersource.com/ebc/reports/dtd/per_1_2.dtd", IsNullable=false)]
     public partial class Requests {
         
         private Request[] requestField;
