@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema xmlns="http://tempuri.org/per_1_2" elementFormDefault="qualified" targetNamespace="http://tempuri.org/per_1_2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Report">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Requests" />
+      </xs:sequence>
+      <xs:attribute name="Name" type="xs:string" use="required" />
+      <xs:attribute name="Version" type="xs:NMTOKEN" use="required" />
+      <xs:attribute name="MerchantID" type="xs:NMTOKEN" use="required" />
+      <xs:attribute name="ReportStartDate" type="xs:NMTOKEN" use="required" />
+      <xs:attribute name="ReportEndDate" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Requests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Request" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="BankTransfer" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="CreditCard" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="DirectDebit" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Check" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="PayPal" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Payment" />
+      </xs:sequence>
+      <xs:attribute name="RequestID" type="xs:string" use="required" />
+      <xs:attribute name="TransactionDate" type="xs:string" use="required" />
+      <xs:attribute name="MerchantReferenceNumber" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BankTransfer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TransactionReferenceNumber" />
+        <xs:element ref="MerchantCurrencyCode" />
+        <xs:element ref="MerchantAmount" />
+        <xs:element ref="ConsumerCurrencyCode" />
+        <xs:element ref="ConsumerAmount" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ProcessorMessage" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Exception" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="BoletoNumber" />
+        <xs:element ref="PaymentTypeDescription" />
+      </xs:sequence>
+      <xs:attribute name="Event" type="xs:string" use="required" />
+      <xs:attribute name="EventDate" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionReferenceNumber" type="xs:string" />
+  <xs:element name="MerchantCurrencyCode" type="xs:string" />
+  <xs:element name="MerchantAmount" type="xs:string" />
+  <xs:element name="ConsumerCurrencyCode" type="xs:string" />
+  <xs:element name="ConsumerAmount" type="xs:string" />
+  <xs:element name="ProcessorMessage" type="xs:string" />
+  <xs:element name="Exception" type="xs:string" />
+  <xs:element name="BoletoNumber" type="xs:string" />
+  <xs:element name="PaymentTypeDescription" type="xs:string" />
+  <xs:element name="DirectDebit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TransactionReferenceNumber" />
+        <xs:element ref="MerchantCurrencyCode" />
+        <xs:element ref="MerchantAmount" />
+        <xs:element ref="ConsumerCurrencyCode" />
+        <xs:element ref="ConsumerAmount" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ProcessorMessage" />
+        <xs:element ref="PaymentTypeDescription" />
+      </xs:sequence>
+      <xs:attribute name="Event" type="xs:string" use="required" />
+      <xs:attribute name="EventDate" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreditCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TransactionReferenceNumber" />
+        <xs:element ref="MerchantCurrencyCode" />
+        <xs:element ref="MerchantAmount" />
+        <xs:element ref="ConsumerCurrencyCode" />
+        <xs:element ref="ConsumerAmount" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ProcessorMessage" />
+        <xs:element ref="PaymentTypeDescription" />
+      </xs:sequence>
+      <xs:attribute name="Event" type="xs:string" use="required" />
+      <xs:attribute name="EventDate" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Payment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TransactionReferenceNumber" />
+        <xs:element ref="MerchantCurrencyCode" />
+        <xs:element ref="MerchantAmount" />
+        <xs:element ref="ConsumerCurrencyCode" />
+        <xs:element ref="ConsumerAmount" />
+        <xs:element ref="FeeCurrencyCode" />
+        <xs:element ref="FeeAmount" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ProcessorMessage" />
+        <xs:element ref="PaymentTypeDescription" />
+      </xs:sequence>
+      <xs:attribute name="Event" type="xs:string" use="required" />
+      <xs:attribute name="EventDate" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Check">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="DebitIndicator" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="TransactionID" />
+        <xs:element ref="TransactionReferenceNumber" />
+        <xs:element ref="MerchantCurrencyCode" />
+        <xs:element ref="MerchantAmount" />
+        <xs:element ref="ConsumerCurrencyCode" />
+        <xs:element ref="ConsumerAmount" />
+        <xs:element ref="FeeCurrencyCode" />
+        <xs:element ref="FeeAmount" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ProcessorMessage" />
+        <xs:element ref="PaymentTypeDescription" />
+      </xs:sequence>
+      <xs:attribute name="Event" type="xs:string" use="required" />
+      <xs:attribute name="EventDate" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DebitIndicator" type="xs:string" />
+  <xs:element name="TransactionID" type="xs:string" />
+  <xs:element name="FeeCurrencyCode" type="xs:string" />
+  <xs:element name="FeeAmount" type="xs:string" />
+  <xs:element name="PayPal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TransactionReferenceNumber" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="MerchantCurrencyCode" />
+        <xs:element ref="MerchantAmount" />
+        <xs:element ref="ConsumerCurrencyCode" />
+        <xs:element ref="ConsumerAmount" />
+        <xs:element ref="FeeCurrencyCode" />
+        <xs:element ref="FeeAmount" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ProcessorMessage" />
+        <xs:element ref="PaymentTypeDescription" />
+      </xs:sequence>
+      <xs:attribute name="Event" type="xs:string" use="required" />
+      <xs:attribute name="EventDate" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
