@@ -1,0 +1,109 @@
+<!ELEMENT Report (SubscriptionPayments)>
+<!ATTLIST Report MerchantID CDATA #REQUIRED
+                 Name CDATA #REQUIRED
+                 ReportStartDate CDATA #REQUIRED
+                 ReportEndDate CDATA #REQUIRED
+                 Version NMTOKEN #REQUIRED
+                 xmlns CDATA #REQUIRED>
+<!ELEMENT SubscriptionPayments (SubscriptionPayment)*>
+<!ELEMENT SubscriptionPayment (BillTo, ShipTo, PaymentMethod, PaymentData, MerchantDefinedData, SubscriptionDetails)>
+<!ATTLIST SubscriptionPayment payment_request_id CDATA #REQUIRED
+                  subscription_id CDATA #REQUIRED
+                  transaction_date CDATA #REQUIRED
+                  merchant_ref_number CDATA #IMPLIED
+                  transaction_ref_number CDATA #IMPLIED
+                  e_commerce_indicator CDATA #IMPLIED>
+<!ELEMENT BillTo (customer_firstname, customer_lastname, bill_address1, bill_address2, bill_city, bill_state, bill_zip,
+                  bill_country, company_name, customer_email, customer_phone, customer_ipaddress, customer_account_id)>
+<!ELEMENT customer_firstname (#PCDATA)>
+<!ELEMENT customer_lastname (#PCDATA)>
+<!ELEMENT bill_address1 (#PCDATA)>
+<!ELEMENT bill_address2 (#PCDATA)>
+<!ELEMENT bill_city (#PCDATA)>
+<!ELEMENT bill_state (#PCDATA)>
+<!ELEMENT bill_zip (#PCDATA)>
+<!ELEMENT bill_country (#PCDATA)>
+<!ELEMENT company_name (#PCDATA)>
+<!ELEMENT customer_email (#PCDATA)>
+<!ELEMENT customer_phone (#PCDATA)>
+<!ELEMENT customer_ipaddress (#PCDATA)>
+<!ELEMENT customer_account_id (#PCDATA)>
+<!ELEMENT ShipTo (ship_to_firstname, bill_address1, ship_to_lastname, ship_to_address1, ship_to_address2, ship_to_city,
+                  ship_to_state, ship_to_zip, ship_to_country, ship_to_company_name)>
+<!ELEMENT ship_to_firstname (#PCDATA)>
+<!ELEMENT ship_to_lastname (#PCDATA)>
+<!ELEMENT ship_to_address1 (#PCDATA)>
+<!ELEMENT ship_to_address2 (#PCDATA)>
+<!ELEMENT ship_to_city (#PCDATA)>
+<!ELEMENT ship_to_state (#PCDATA)>
+<!ELEMENT ship_to_zip (#PCDATA)>
+<!ELEMENT ship_to_country (#PCDATA)>
+<!ELEMENT ship_to_company_name (#PCDATA)>
+<!ELEMENT PaymentMethod (Card | Check)>
+<!ELEMENT Card (card_type, customer_cc_expmo, customer_cc_expyr, customer_cc_startmo, customer_cc_startyr,
+                customer_cc_issue-number, account_suffix)>
+<!ELEMENT card_type (#PCDATA)>
+<!ELEMENT customer_cc_expmo (#PCDATA)>
+<!ELEMENT customer_cc_expyr (#PCDATA)>
+<!ELEMENT customer_cc_startmo (#PCDATA)>
+<!ELEMENT customer_cc_startyr (#PCDATA)>
+<!ELEMENT customer_cc_issue-number (#PCDATA)>
+<!ELEMENT Check (account_suffix, ecp_account_type, ecp_rdfi)>
+<!ELEMENT account_suffix (#PCDATA)>
+<!ELEMENT ecp_account_type (#PCDATA)>
+<!ELEMENT ecp_rdfi (#PCDATA)>
+<!ELEMENT PaymentData (ics_applications, recurring_payment_event_amount, payment_processor, currency_code, reason_code,
+                       auth_rcode, auth_code, auth_type, auth_auth_avs, auth_auth_response, auth_cavv_response, ics_rcode,
+                       ics_rflag, ics_rmsg, request_token)>
+<!ELEMENT ics_applications (#PCDATA)>
+<!ELEMENT recurring_payment_event_amount (#PCDATA)>
+<!ELEMENT payment_processor (#PCDATA)>
+<!ELEMENT currency_code (#PCDATA)>
+<!ELEMENT reason_code (#PCDATA)>
+<!ELEMENT auth_rcode (#PCDATA)>
+<!ELEMENT auth_code (#PCDATA)>
+<!ELEMENT auth_type (#PCDATA)>
+<!ELEMENT auth_auth_avs (#PCDATA)>
+<!ELEMENT auth_auth_response (#PCDATA)>
+<!ELEMENT auth_cavv_response (#PCDATA)>
+<!ELEMENT ics_rcode (#PCDATA)>
+<!ELEMENT ics_rflag (#PCDATA)>
+<!ELEMENT ics_rmsg (#PCDATA)>
+<!ELEMENT request_token (#PCDATA)>
+<!ELEMENT MerchantDefinedData (merchant_defined_data1, merchant_defined_data2, merchant_defined_data3, merchant_defined_data4)>
+<!ELEMENT merchant_defined_data1 (#PCDATA)>
+<!ELEMENT merchant_defined_data2 (#PCDATA)>
+<!ELEMENT merchant_defined_data3 (#PCDATA)>
+<!ELEMENT merchant_defined_data4 (#PCDATA)>
+<!ELEMENT SubscriptionDetails (recurring_payment_amount, subscription_type, subscription_title, last_subscription_status,
+                               subscription_status, subscription_payment_method, recurring_start_date, next_scheduled_date,
+                               event_retry_count, payments_success, payment_success_amount, recurring_number_of_payments?,
+                               installment_sequence?, installment_total_count?, recurring_frequency, recurring_approval_required,
+                               recurring_payment_event_approved_by, recurring_automatic_renew, comments, setup_fee, setup_fee_currency,
+                               tax_amount, merchant_secure_data1, merchant_secure_data2, merchant_secure_data3, merchant_secure_data4)>
+<!ELEMENT recurring_payment_amount (#PCDATA)>
+<!ELEMENT subscription_type (#PCDATA)>
+<!ELEMENT subscription_title (#PCDATA)>
+<!ELEMENT last_subscription_status (#PCDATA)>
+<!ELEMENT subscription_status (#PCDATA)>
+<!ELEMENT subscription_payment_method (#PCDATA)>
+<!ELEMENT recurring_start_date (#PCDATA)>
+<!ELEMENT next_scheduled_date (#PCDATA)>
+<!ELEMENT event_retry_count (#PCDATA)>
+<!ELEMENT payments_success (#PCDATA)>
+<!ELEMENT payment_success_amount (#PCDATA)>
+<!ELEMENT recurring_number_of_payments (#PCDATA)>
+<!ELEMENT installment_sequence (#PCDATA)>
+<!ELEMENT installment_total_count (#PCDATA)>
+<!ELEMENT recurring_frequency (#PCDATA)>
+<!ELEMENT recurring_approval_required (#PCDATA)>
+<!ELEMENT recurring_payment_event_approved_by (#PCDATA)>
+<!ELEMENT recurring_automatic_renew (#PCDATA)>
+<!ELEMENT comments (#PCDATA)>
+<!ELEMENT setup_fee (#PCDATA)>
+<!ELEMENT setup_fee_currency (#PCDATA)>
+<!ELEMENT tax_amount (#PCDATA)>
+<!ELEMENT merchant_secure_data1 (#PCDATA)>
+<!ELEMENT merchant_secure_data2 (#PCDATA)>
+<!ELEMENT merchant_secure_data3 (#PCDATA)>
+<!ELEMENT merchant_secure_data4 (#PCDATA)>

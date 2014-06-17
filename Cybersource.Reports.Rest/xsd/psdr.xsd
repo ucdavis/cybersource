@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema xmlns="https://ebc.cybersource.com/ebc/reports/dtd/psdr.dtd" elementFormDefault="qualified" targetNamespace="https://ebc.cybersource.com/ebc/reports/dtd/psdr.dtd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Report">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Batches" />
+      </xs:sequence>
+      <xs:attribute name="Name" type="xs:string" use="required" />
+      <xs:attribute name="Version" type="xs:NMTOKEN" use="required" />
+      <xs:attribute name="MerchantID" type="xs:string" use="required" />
+      <xs:attribute name="ReportStartDate" type="xs:string" use="required" />
+      <xs:attribute name="ReportEndDate" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Batches">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="Batch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Batch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Requests" />
+      </xs:sequence>
+      <xs:attribute name="BatchID" type="xs:string" use="required" />
+      <xs:attribute name="BatchDate" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Requests">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="Request" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TransactionReferenceNumber" />
+        <xs:element ref="TransactionId" />
+        <xs:element ref="PaymentMethod" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CardCategory" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CardCategoryCode" />
+        <xs:element ref="CurrencyCode" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CustomerId" />
+        <xs:element ref="Amount" />
+        <xs:element ref="Application" />
+        <xs:element ref="PaymentProcessor" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="TargetAmount" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="TargetCurrency" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ExchangeRate" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ExchangeRateDate" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="DCCIndicator" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="BoletoNumber" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="NumberOfInstallments" />
+      </xs:sequence>
+      <xs:attribute name="RequestID" type="xs:string" use="required" />
+      <xs:attribute name="MerchantReferenceNumber" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionReferenceNumber" type="xs:string" />
+  <xs:element name="TransactionId" type="xs:string" />
+  <xs:element name="PaymentMethod" type="xs:string" />
+  <xs:element name="CardCategory" type="xs:string" />
+  <xs:element name="CardCategoryCode" type="xs:string" />
+  <xs:element name="CurrencyCode" type="xs:string" />
+  <xs:element name="CustomerId" type="xs:string" />
+  <xs:element name="Amount" type="xs:string" />
+  <xs:element name="Application" type="xs:string" />
+  <xs:element name="PaymentProcessor" type="xs:string" />
+  <xs:element name="TargetAmount" type="xs:string" />
+  <xs:element name="TargetCurrency" type="xs:string" />
+  <xs:element name="ExchangeRate" type="xs:string" />
+  <xs:element name="ExchangeRateDate" type="xs:string" />
+  <xs:element name="DCCIndicator" type="xs:string" />
+  <xs:element name="BoletoNumber" type="xs:string" />
+  <xs:element name="NumberOfInstallments" type="xs:string" />
+</xs:schema>

@@ -1,0 +1,20 @@
+<!ELEMENT SubscriptionEvents (CurrencyTotals, SubscriptionEvent*)>
+<!ATTLIST SubscriptionEvents
+  startDate CDATA #IMPLIED
+  endDate CDATA #IMPLIED>
+<!ELEMENT CurrencyTotals (TotalCount, CurrencyTotal*)>
+<!ELEMENT TotalCount (#PCDATA)>
+<!ELEMENT CurrencyTotal (Count, CurrencyCode, Amount)>
+<!ELEMENT Count (#PCDATA)>
+<!ELEMENT CurrencyCode (#PCDATA)>
+<!ELEMENT SubscriptionEvent (SubscriptionID, OrderNumber, Title?, ScheduledDate, BillLastName, BillFirstName, PaymentNumber, SubscriptionAmount, SubscriptionCurrencyCode)>
+<!ELEMENT SubscriptionID (#PCDATA)>
+<!ELEMENT OrderNumber (#PCDATA)>
+<!ELEMENT Title (#PCDATA)>
+<!ELEMENT ScheduledDate (#PCDATA)>
+<!ELEMENT BillLastName (#PCDATA)>
+<!ELEMENT BillFirstName (#PCDATA)>
+<!ELEMENT PaymentNumber (#PCDATA)>
+<!ELEMENT SubscriptionCurrencyCode (#PCDATA)>
+<!ELEMENT SubscriptionAmount (#PCDATA)>
+<!ELEMENT Amount (#PCDATA)>

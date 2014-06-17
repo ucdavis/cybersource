@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema xmlns="https://ebc.cybersource.com/ebc/reports/dtd/tedr.dtd" elementFormDefault="qualified" targetNamespace="https://ebc.cybersource.com/ebc/reports/dtd/tedr.dtd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Report">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Requests" />
+      </xs:sequence>
+      <xs:attribute name="Name" type="xs:string" use="required" />
+      <xs:attribute name="Version" type="xs:NMTOKEN" use="required" />
+      <xs:attribute name="MerchantID" type="xs:string" use="required" />
+      <xs:attribute name="ReportStartDate" type="xs:string" use="required" />
+      <xs:attribute name="ReportEndDate" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Requests">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="Request" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="BasicInformation" />
+        <xs:element ref="PaymentData" />
+        <xs:element ref="PaymentMethod" />
+        <xs:element ref="ErrorInformation" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="BillTo" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ShipTo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BasicInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RequestID" />
+        <xs:element ref="TransactionDate" />
+        <xs:element ref="MerchantReferenceNumber" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="TransactionReferenceNumber" />
+        <xs:element ref="TransactionType" />
+        <xs:element ref="OriginalRequestID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestID" type="xs:string" />
+  <xs:element name="TransactionDate" type="xs:string" />
+  <xs:element name="MerchantReferenceNumber" type="xs:string" />
+  <xs:element name="TransactionReferenceNumber" type="xs:string" />
+  <xs:element name="TransactionType" type="xs:string" />
+  <xs:element name="OriginalRequestID" type="xs:string" />
+  <xs:element name="PaymentData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Amount" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CurrencyCode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Amount" type="xs:string" />
+  <xs:element name="CurrencyCode" type="xs:string" />
+  <xs:element name="PaymentMethod">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="AccountSuffix" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="BankCode" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="BankAccountName" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ExpirationMonth" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ExpirationYear" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CardType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccountSuffix" type="xs:string" />
+  <xs:element name="BankCode" type="xs:string" />
+  <xs:element name="BankAccountName" type="xs:string" />
+  <xs:element name="ExpirationMonth" type="xs:string" />
+  <xs:element name="ExpirationYear" type="xs:string" />
+  <xs:element name="CardType" type="xs:string" />
+  <xs:element name="ErrorInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="PaymentProcessor" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Action" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ErrorCategory" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ErrorMessage" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ReasonCode" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ProcessorResponseCode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PaymentProcessor" type="xs:string" />
+  <xs:element name="Action" type="xs:string" />
+  <xs:element name="ErrorCategory" type="xs:string" />
+  <xs:element name="ErrorMessage" type="xs:string" />
+  <xs:element name="ReasonCode" type="xs:string" />
+  <xs:element name="ProcessorResponseCode" type="xs:string" />
+  <xs:element name="BillTo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="FirstName" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="LastName" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Address1" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Address2" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="City" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="State" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="PostalCode" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Country" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CompanyName" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Email" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Phone" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FirstName" type="xs:string" />
+  <xs:element name="LastName" type="xs:string" />
+  <xs:element name="Address1" type="xs:string" />
+  <xs:element name="Address2" type="xs:string" />
+  <xs:element name="City" type="xs:string" />
+  <xs:element name="State" type="xs:string" />
+  <xs:element name="PostalCode" type="xs:string" />
+  <xs:element name="Country" type="xs:string" />
+  <xs:element name="CompanyName" type="xs:string" />
+  <xs:element name="Email" type="xs:string" />
+  <xs:element name="Phone" type="xs:string" />
+  <xs:element name="ShipTo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="FirstName" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="LastName" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Address1" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Address2" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="City" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="State" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="PostalCode" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Country" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
