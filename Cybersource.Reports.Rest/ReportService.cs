@@ -39,6 +39,15 @@ namespace Cybersource.Reports.Rest
             return DeserializeReport<PaymentEventsReport.Report>(content);
         }
 
+        public async Task<PaymentSubmissionDetailReport.Report> GetPaymentSubmissionDetail(DateTime date)
+        {
+            // fetch content
+            var content = await GetClientApiReport("PaymentSubmissionDetailReport", date);
+
+            // deserialize
+            return DeserializeReport<PaymentSubmissionDetailReport.Report>(content);
+        }
+
         public async Task<SubscriptionDetailReport.Report> GetSubscriptionDetailReport(DateTime date)
         {
             // fetch content

@@ -20,15 +20,13 @@ namespace Cybersource.Reports.Rest
             _username = ConfigurationManager.AppSettings["username"];
             _password = ConfigurationManager.AppSettings["password"];
 
-            StaticReport();
-            DemandReport();
-            QueryReport();
+            Report();
 
             Console.WriteLine("Hit ENTER to exit...");
             Console.ReadLine();
         }
 
-        static async void StaticReport()
+        static async void Report()
         {
             var reportService = new ReportService("https://ebctest.cybersource.com/ebctest/", _username, _password)
             {
@@ -39,47 +37,7 @@ namespace Cybersource.Reports.Rest
             
             try
             {
-                var report = await reportService.GetPaymentEventsReport(yesterday);
-
-                Console.Write(report);
-            }
-            catch (Exception e)
-            {
-                Console.Write(e.Message);
-            }
-        }
-
-        static async void DemandReport()
-        {
-            var reportService = new ReportService("https://ebctest.cybersource.com/ebctest/", _username, _password)
-            {
-                MerchantId = "ucdavis_jpknoll"
-            };
-
-            var yesterday = DateTime.Today - TimeSpan.FromDays(1);
-
-            try
-            {
-                var report = await reportService.GetSubscriptionDetailReport(yesterday);
-
-                Console.Write(report);
-            }
-            catch (Exception e)
-            {
-                Console.Write(e.Message);
-            }
-        }
-
-        static async void QueryReport()
-        {
-            var reportService = new ReportService("https://ebctest.cybersource.com/ebctest/", _username, _password)
-            {
-                MerchantId = "ucdavis_jpknoll"
-            };
-
-            try
-            {
-                var report = await reportService.GetTransactionDetailReport("4029572250300176056442");
+                var report = await reportService.GetPaymentSubmissionDetail(yesterday);
 
                 Console.Write(report);
             }
