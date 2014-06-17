@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\per_1_2.cs" />
+    <Compile Include="classes\psdr.cs" />
     <Compile Include="classes\sdr.cs" />
     <Compile Include="classes\tdr_1_13.cs" />
     <Compile Include="ReportService.cs" />
@@ -80,6 +81,9 @@
     <None Include="dtd\tdr_1_5.dtd" />
     <None Include="packages.config" />
     <None Include="xsd\per_1_2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="xsd\psdr.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="xsd\sdr.xsd">
