@@ -1,4 +1,4 @@
-<!ELEMENT Report (Subscriptions)>
+<!ELEMENT Report (SubscriptionPayments)>
 <!ATTLIST Report MerchantID CDATA #REQUIRED
                  Name CDATA #REQUIRED
                  ReportStartDate CDATA #REQUIRED
@@ -48,7 +48,6 @@
 <!ELEMENT customer_cc_startmo (#PCDATA)>
 <!ELEMENT customer_cc_startyr (#PCDATA)>
 <!ELEMENT customer_cc_issue-number (#PCDATA)>
-<!ELEMENT account_suffix (#PCDATA)>
 <!ELEMENT Check (account_suffix, ecp_account_type, ecp_rdfi)>
 <!ELEMENT account_suffix (#PCDATA)>
 <!ELEMENT ecp_account_type (#PCDATA)>

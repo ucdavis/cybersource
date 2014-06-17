@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="https://ebc.cybersource.com/ebc/reports/dtd/sdr.dtd" elementFormDefault="qualified" targetNamespace="https://ebc.cybersource.com/ebc/reports/dtd/sdr.dtd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Report">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="SubscriptionPayments" />
+      </xs:sequence>
+      <xs:attribute name="MerchantID" type="xs:string" use="required" />
+      <xs:attribute name="Name" type="xs:string" use="required" />
+      <xs:attribute name="ReportStartDate" type="xs:string" use="required" />
+      <xs:attribute name="ReportEndDate" type="xs:string" use="required" />
+      <xs:attribute name="Version" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubscriptionPayments">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="SubscriptionPayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubscriptionPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="BillTo" />
+        <xs:element ref="ShipTo" />
+        <xs:element ref="PaymentMethod" />
+        <xs:element ref="PaymentData" />
+        <xs:element ref="MerchantDefinedData" />
+        <xs:element ref="SubscriptionDetails" />
+      </xs:sequence>
+      <xs:attribute name="payment_request_id" type="xs:string" use="required" />
+      <xs:attribute name="subscription_id" type="xs:string" use="required" />
+      <xs:attribute name="transaction_date" type="xs:string" use="required" />
+      <xs:attribute name="merchant_ref_number" type="xs:string" />
+      <xs:attribute name="transaction_ref_number" type="xs:string" />
+      <xs:attribute name="e_commerce_indicator" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BillTo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="customer_firstname" />
+        <xs:element ref="customer_lastname" />
+        <xs:element ref="bill_address1" />
+        <xs:element ref="bill_address2" />
+        <xs:element ref="bill_city" />
+        <xs:element ref="bill_state" />
+        <xs:element ref="bill_zip" />
+        <xs:element ref="bill_country" />
+        <xs:element ref="company_name" />
+        <xs:element ref="customer_email" />
+        <xs:element ref="customer_phone" />
+        <xs:element ref="customer_ipaddress" />
+        <xs:element ref="customer_account_id" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="customer_firstname" type="xs:string" />
+  <xs:element name="customer_lastname" type="xs:string" />
+  <xs:element name="bill_address1" type="xs:string" />
+  <xs:element name="bill_address2" type="xs:string" />
+  <xs:element name="bill_city" type="xs:string" />
+  <xs:element name="bill_state" type="xs:string" />
+  <xs:element name="bill_zip" type="xs:string" />
+  <xs:element name="bill_country" type="xs:string" />
+  <xs:element name="company_name" type="xs:string" />
+  <xs:element name="customer_email" type="xs:string" />
+  <xs:element name="customer_phone" type="xs:string" />
+  <xs:element name="customer_ipaddress" type="xs:string" />
+  <xs:element name="customer_account_id" type="xs:string" />
+  <xs:element name="ShipTo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ship_to_firstname" />
+        <xs:element ref="bill_address1" />
+        <xs:element ref="ship_to_lastname" />
+        <xs:element ref="ship_to_address1" />
+        <xs:element ref="ship_to_address2" />
+        <xs:element ref="ship_to_city" />
+        <xs:element ref="ship_to_state" />
+        <xs:element ref="ship_to_zip" />
+        <xs:element ref="ship_to_country" />
+        <xs:element ref="ship_to_company_name" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ship_to_firstname" type="xs:string" />
+  <xs:element name="ship_to_lastname" type="xs:string" />
+  <xs:element name="ship_to_address1" type="xs:string" />
+  <xs:element name="ship_to_address2" type="xs:string" />
+  <xs:element name="ship_to_city" type="xs:string" />
+  <xs:element name="ship_to_state" type="xs:string" />
+  <xs:element name="ship_to_zip" type="xs:string" />
+  <xs:element name="ship_to_country" type="xs:string" />
+  <xs:element name="ship_to_company_name" type="xs:string" />
+  <xs:element name="PaymentMethod">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="Card" />
+        <xs:element ref="Check" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Card">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="card_type" />
+        <xs:element ref="customer_cc_expmo" />
+        <xs:element ref="customer_cc_expyr" />
+        <xs:element ref="customer_cc_startmo" />
+        <xs:element ref="customer_cc_startyr" />
+        <xs:element ref="customer_cc_issue-number" />
+        <xs:element ref="account_suffix" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="card_type" type="xs:string" />
+  <xs:element name="customer_cc_expmo" type="xs:string" />
+  <xs:element name="customer_cc_expyr" type="xs:string" />
+  <xs:element name="customer_cc_startmo" type="xs:string" />
+  <xs:element name="customer_cc_startyr" type="xs:string" />
+  <xs:element name="customer_cc_issue-number" type="xs:string" />
+  <xs:element name="Check">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="account_suffix" />
+        <xs:element ref="ecp_account_type" />
+        <xs:element ref="ecp_rdfi" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="account_suffix" type="xs:string" />
+  <xs:element name="ecp_account_type" type="xs:string" />
+  <xs:element name="ecp_rdfi" type="xs:string" />
+  <xs:element name="PaymentData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ics_applications" />
+        <xs:element ref="recurring_payment_event_amount" />
+        <xs:element ref="payment_processor" />
+        <xs:element ref="currency_code" />
+        <xs:element ref="reason_code" />
+        <xs:element ref="auth_rcode" />
+        <xs:element ref="auth_code" />
+        <xs:element ref="auth_type" />
+        <xs:element ref="auth_auth_avs" />
+        <xs:element ref="auth_auth_response" />
+        <xs:element ref="auth_cavv_response" />
+        <xs:element ref="ics_rcode" />
+        <xs:element ref="ics_rflag" />
+        <xs:element ref="ics_rmsg" />
+        <xs:element ref="request_token" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ics_applications" type="xs:string" />
+  <xs:element name="recurring_payment_event_amount" type="xs:string" />
+  <xs:element name="payment_processor" type="xs:string" />
+  <xs:element name="currency_code" type="xs:string" />
+  <xs:element name="reason_code" type="xs:string" />
+  <xs:element name="auth_rcode" type="xs:string" />
+  <xs:element name="auth_code" type="xs:string" />
+  <xs:element name="auth_type" type="xs:string" />
+  <xs:element name="auth_auth_avs" type="xs:string" />
+  <xs:element name="auth_auth_response" type="xs:string" />
+  <xs:element name="auth_cavv_response" type="xs:string" />
+  <xs:element name="ics_rcode" type="xs:string" />
+  <xs:element name="ics_rflag" type="xs:string" />
+  <xs:element name="ics_rmsg" type="xs:string" />
+  <xs:element name="request_token" type="xs:string" />
+  <xs:element name="MerchantDefinedData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="merchant_defined_data1" />
+        <xs:element ref="merchant_defined_data2" />
+        <xs:element ref="merchant_defined_data3" />
+        <xs:element ref="merchant_defined_data4" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="merchant_defined_data1" type="xs:string" />
+  <xs:element name="merchant_defined_data2" type="xs:string" />
+  <xs:element name="merchant_defined_data3" type="xs:string" />
+  <xs:element name="merchant_defined_data4" type="xs:string" />
+  <xs:element name="SubscriptionDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="recurring_payment_amount" />
+        <xs:element ref="subscription_type" />
+        <xs:element ref="subscription_title" />
+        <xs:element ref="last_subscription_status" />
+        <xs:element ref="subscription_status" />
+        <xs:element ref="subscription_payment_method" />
+        <xs:element ref="recurring_start_date" />
+        <xs:element ref="next_scheduled_date" />
+        <xs:element ref="event_retry_count" />
+        <xs:element ref="payments_success" />
+        <xs:element ref="payment_success_amount" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="recurring_number_of_payments" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="installment_sequence" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="installment_total_count" />
+        <xs:element ref="recurring_frequency" />
+        <xs:element ref="recurring_approval_required" />
+        <xs:element ref="recurring_payment_event_approved_by" />
+        <xs:element ref="recurring_automatic_renew" />
+        <xs:element ref="comments" />
+        <xs:element ref="setup_fee" />
+        <xs:element ref="setup_fee_currency" />
+        <xs:element ref="tax_amount" />
+        <xs:element ref="merchant_secure_data1" />
+        <xs:element ref="merchant_secure_data2" />
+        <xs:element ref="merchant_secure_data3" />
+        <xs:element ref="merchant_secure_data4" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="recurring_payment_amount" type="xs:string" />
+  <xs:element name="subscription_type" type="xs:string" />
+  <xs:element name="subscription_title" type="xs:string" />
+  <xs:element name="last_subscription_status" type="xs:string" />
+  <xs:element name="subscription_status" type="xs:string" />
+  <xs:element name="subscription_payment_method" type="xs:string" />
+  <xs:element name="recurring_start_date" type="xs:string" />
+  <xs:element name="next_scheduled_date" type="xs:string" />
+  <xs:element name="event_retry_count" type="xs:string" />
+  <xs:element name="payments_success" type="xs:string" />
+  <xs:element name="payment_success_amount" type="xs:string" />
+  <xs:element name="recurring_number_of_payments" type="xs:string" />
+  <xs:element name="installment_sequence" type="xs:string" />
+  <xs:element name="installment_total_count" type="xs:string" />
+  <xs:element name="recurring_frequency" type="xs:string" />
+  <xs:element name="recurring_approval_required" type="xs:string" />
+  <xs:element name="recurring_payment_event_approved_by" type="xs:string" />
+  <xs:element name="recurring_automatic_renew" type="xs:string" />
+  <xs:element name="comments" type="xs:string" />
+  <xs:element name="setup_fee" type="xs:string" />
+  <xs:element name="setup_fee_currency" type="xs:string" />
+  <xs:element name="tax_amount" type="xs:string" />
+  <xs:element name="merchant_secure_data1" type="xs:string" />
+  <xs:element name="merchant_secure_data2" type="xs:string" />
+  <xs:element name="merchant_secure_data3" type="xs:string" />
+  <xs:element name="merchant_secure_data4" type="xs:string" />
+</xs:schema>
