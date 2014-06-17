@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -14,8 +15,6 @@ namespace Cybersource.Reports.Rest
         private const string BaseUri = "https://ebctest.cybersource.com/ebctest/DownloadReport/{year}/{month}/{day}/{merchantId}/{reportName}.{reportFormat}";
 
         private const string QueryUri = "https://ebctest.cybersource.com/ebctest/Query";
-
-        private const string BaseNamespace = "https://ebctest.cybersource.com/ebctest/reports/dtd";
 
         static void Main(string[] args)
         {
@@ -49,11 +48,16 @@ namespace Cybersource.Reports.Rest
 
                 response.EnsureSuccessStatusCode();
 
-                var fixRootNs = new XmlRootAttribute { ElementName = "Report", Namespace = BaseNamespace + "/per_1_2.dtd", IsNullable = true };
+                // fetch content
+                var content = await response.Content.ReadAsStringAsync();
 
-                var stream = await response.Content.ReadAsStreamAsync();
-                var factory = new XmlSerializerFactory();
-                var serializer = factory.CreateSerializer(typeof (PaymentEventsReport.Report), fixRootNs);
+                // fix namespaces
+                content = FixNamespace(content);
+                content = content.Replace("tdr_1_5.dtd", "tdr_1_13.dtd");
+                var stream = new StringReader(content);
+
+                // deserialize
+                var serializer = new XmlSerializer(typeof(PaymentEventsReport.Report));
                 var report = serializer.Deserialize(stream) as PaymentEventsReport.Report;
 
                 Console.Write(report);
@@ -84,11 +88,30 @@ namespace Cybersource.Reports.Rest
                 var response = await client.PostAsync(QueryUri, data);
 
                 response.EnsureSuccessStatusCode();
+
+                // fetch content
+                var content = await response.Content.ReadAsStringAsync();
+
+                // fix namespaces
+                content = FixNamespace(content);
+                content = content.Replace("tdr_1_5.dtd", "tdr_1_13.dtd");
+                var stream = new StringReader(content);
+
+                // deserialize
+                var serializer = new XmlSerializer(typeof(TransactionDetailReport.Report));
+                var report = serializer.Deserialize(stream);
+
+                Console.Write(report);
             }
             catch (Exception e)
             {
                 Console.Write(e.Message);
             }
+        }
+
+        private static string FixNamespace(string xml)
+        {
+            return xml.Replace("https://ebctest.cybersource.com/ebctest/reports/dtd", "https://ebc.cybersource.com/ebc/reports/dtd");
         }
 
         private static AuthenticationHeaderValue GetCredentials()
