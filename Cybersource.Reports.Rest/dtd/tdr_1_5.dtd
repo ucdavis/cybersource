@@ -1,0 +1,165 @@
+<!ELEMENT Report (Requests)>
+<!ATTLIST Report MerchantID CDATA #REQUIRED
+                 Name CDATA #REQUIRED
+                 ReportStartDate CDATA #REQUIRED
+                 ReportEndDate CDATA #REQUIRED
+                 Version NMTOKEN #REQUIRED
+                 xmlns CDATA #REQUIRED>
+<!ELEMENT Requests (Request)*>
+<!ELEMENT Request (BillTo, ShipTo?, Shipping?, PaymentMethod, LineItems?, ApplicationReplies, PaymentData?, MerchantDefinedData?, RiskData?, ProfileList?)>
+<!ATTLIST Request MerchantReferenceNumber CDATA #REQUIRED
+                  RequestDate CDATA #REQUIRED
+                  RequestID CDATA #REQUIRED
+                  SubscriptionID CDATA #IMPLIED
+                  Source CDATA #IMPLIED
+                  User CDATA #IMPLIED
+                  Comments CDATA #IMPLIED
+                  TransactionReferenceNumber CDATA #IMPLIED
+                  PredecessorRequestID CDATA #IMPLIED>
+<!ELEMENT BillTo (FirstName, LastName, MiddleName?, NameSuffix?, Address1?, Address2?, City, State?, Zip?, CompanyName?, Email, Country, Title?, Phone, IPAddress?, Hostname?, UserName?, CustomerID?)>
+<!ELEMENT FirstName (#PCDATA)>
+<!ELEMENT LastName (#PCDATA)>
+<!ELEMENT MiddleName (#PCDATA)>
+<!ELEMENT NameSuffix (#PCDATA)>
+<!ELEMENT Address1 (#PCDATA)>
+<!ELEMENT Address2 (#PCDATA)>
+<!ELEMENT City (#PCDATA)>
+<!ELEMENT State (#PCDATA)>
+<!ELEMENT Zip (#PCDATA)>
+<!ELEMENT CompanyName (#PCDATA)>
+<!ELEMENT Email (#PCDATA)>
+<!ELEMENT Country (#PCDATA)>
+<!ELEMENT Title (#PCDATA)>
+<!ELEMENT Phone (#PCDATA)>
+<!ELEMENT IPAddress (#PCDATA)>
+<!ELEMENT Hostname (#PCDATA)>
+<!ELEMENT UserName (#PCDATA)>
+<!ELEMENT CustomerID (#PCDATA)>
+<!ELEMENT ShipTo (FirstName?, LastName?, Address1?, Address2?, City?, State?, Zip?, CompanyName?, Country?, Phone?)>
+<!ELEMENT Shipping (Method, Carrier)>
+<!ELEMENT Method (#PCDATA)>
+<!ELEMENT Carrier (#PCDATA)>
+<!ELEMENT PaymentMethod (Card | Check)>
+<!ELEMENT Card (AccountSuffix, ExpirationMonth, ExpirationYear, StartMonth?, StartYear?, IssueNumber?, CardType, BoletoNumber?)>
+<!ELEMENT AccountSuffix (#PCDATA)>
+<!ELEMENT ExpirationMonth (#PCDATA)>
+<!ELEMENT ExpirationYear (#PCDATA)>
+<!ELEMENT StartMonth (#PCDATA)>
+<!ELEMENT StartYear (#PCDATA)>
+<!ELEMENT IssueNumber (#PCDATA)>
+<!ELEMENT CardType (#PCDATA)>
+<!ELEMENT BoletoNumber (#PCDATA)>
+<!ELEMENT Check (AccountSuffix, CheckNumber)>
+<!ELEMENT CheckNumber (#PCDATA)>
+<!ELEMENT LineItems (LineItem)*>
+<!ELEMENT LineItem (FulfillmentType, Quantity?, UnitPrice, TaxAmount?, MerchantProductSKU?, ProductName?, ProductCode?)>
+<!ATTLIST LineItem Number CDATA #REQUIRED>
+<!ELEMENT FulfillmentType (#PCDATA)>
+<!ELEMENT Quantity (#PCDATA)>
+<!ELEMENT UnitPrice (#PCDATA)>
+<!ELEMENT TaxAmount (#PCDATA)>
+<!ELEMENT MerchantProductSKU (#PCDATA)>
+<!ELEMENT ProductCode (#PCDATA)>
+<!ELEMENT ProductName (#PCDATA)>
+<!ELEMENT ApplicationReplies (ApplicationReply)*>
+<!ELEMENT ApplicationReply (RCode, RFlag, RMsg?)>
+<!ATTLIST ApplicationReply Name CDATA #REQUIRED>
+<!ELEMENT RCode (#PCDATA)>
+<!ELEMENT RFlag (#PCDATA)>
+<!ELEMENT RMsg (#PCDATA)>
+<!ELEMENT PaymentData (PaymentRequestID?, PaymentProcessor?, Amount?, CurrencyCode?, TotalTaxAmount?, AuthorizationType?, AuthorizationCode?, AVSResult?, AVSResultMapped?, CVResult?, ProcessorResponseCode?, PayerAuthenticationInfo?, EventType?, NumberOfInstallments?, ACHVerificationResult?, ACHVerificationResultMapped?)>
+<!ELEMENT PaymentRequestID (#PCDATA)>
+<!ELEMENT PaymentProcessor (#PCDATA)>
+<!ELEMENT Amount (#PCDATA)>
+<!ELEMENT CurrencyCode (#PCDATA)>
+<!ELEMENT TotalTaxAmount (#PCDATA)>
+<!ELEMENT AuthorizationType (#PCDATA)>
+<!ELEMENT AuthorizationCode (#PCDATA)>
+<!ELEMENT AVSResult (#PCDATA)>
+<!ELEMENT AVSResultMapped (#PCDATA)>
+<!ELEMENT CVResult (#PCDATA)>
+<!ELEMENT ProcessorResponseCode (#PCDATA)>
+<!ELEMENT PayerAuthenticationInfo (ECI?, AAV_CAVV?, XID?)>
+<!ELEMENT ECI (#PCDATA)>
+<!ELEMENT AAV_CAVV (#PCDATA)>
+<!ELEMENT XID (#PCDATA)>
+<!ELEMENT EventType (#PCDATA)>
+<!ELEMENT NumberOfInstallments (#PCDATA)>
+<!ELEMENT ACHVerificationResult (#PCDATA)>
+<!ELEMENT ACHVerificationResultMapped (#PCDATA)>
+<!ELEMENT MerchantDefinedData (field1?, field2?, field3?, field4?,
+                               field5?, field6?, field7?, field8?,
+                               field9?, field10?, field11?, field12?,
+                               field13?, field14?, field15?, field16?,
+                               field17?, field18?, field19?, field20?)>
+<!ELEMENT field1 (#PCDATA)>
+<!ATTLIST field1 name CDATA #IMPLIED>
+<!ELEMENT field2 (#PCDATA)>
+<!ATTLIST field2 name CDATA #IMPLIED>
+<!ELEMENT field3 (#PCDATA)>
+<!ATTLIST field3 name CDATA #IMPLIED>
+<!ELEMENT field4 (#PCDATA)>
+<!ATTLIST field4 name CDATA #IMPLIED>
+<!ELEMENT field5 (#PCDATA)>
+<!ATTLIST field5 name CDATA #IMPLIED>
+<!ELEMENT field6 (#PCDATA)>
+<!ATTLIST field6 name CDATA #IMPLIED>
+<!ELEMENT field7 (#PCDATA)>
+<!ATTLIST field7 name CDATA #IMPLIED>
+<!ELEMENT field8 (#PCDATA)>
+<!ATTLIST field8 name CDATA #IMPLIED>
+<!ELEMENT field9 (#PCDATA)>
+<!ATTLIST field9 name CDATA #IMPLIED>
+<!ELEMENT field10 (#PCDATA)>
+<!ATTLIST field10 name CDATA #IMPLIED>
+<!ELEMENT field11 (#PCDATA)>
+<!ATTLIST field11 name CDATA #IMPLIED>
+<!ELEMENT field12 (#PCDATA)>
+<!ATTLIST field12 name CDATA #IMPLIED>
+<!ELEMENT field13 (#PCDATA)>
+<!ATTLIST field13 name CDATA #IMPLIED>
+<!ELEMENT field14 (#PCDATA)>
+<!ATTLIST field14 name CDATA #IMPLIED>
+<!ELEMENT field15 (#PCDATA)>
+<!ATTLIST field15 name CDATA #IMPLIED>
+<!ELEMENT field16 (#PCDATA)>
+<!ATTLIST field16 name CDATA #IMPLIED>
+<!ELEMENT field17 (#PCDATA)>
+<!ATTLIST field17 name CDATA #IMPLIED>
+<!ELEMENT field18 (#PCDATA)>
+<!ATTLIST field18 name CDATA #IMPLIED>
+<!ELEMENT field19 (#PCDATA)>
+<!ATTLIST field19 name CDATA #IMPLIED>
+<!ELEMENT field20 (#PCDATA)>
+<!ATTLIST field20 name CDATA #IMPLIED>
+<!ELEMENT RiskData (Factors?, HostSeverity?, Score?, TimeLocal?, ConsumerPasswordProvided?, LostPassword?, RepeatCustomer?, CookiesAccepted?, ConsumerLoyalty?, ConsumerPromotions?, GiftWrap?, ReturnsAccepted?, ProductRisk?, AppliedThreshold?, AppliedTimeHedge, AppliedVelocityHedge, AppliedHostHedge, AppliedCategoryGift, AppliedCategoryTime, AppliedAVS?, AppliedCV?)>
+<!ELEMENT Factors (#PCDATA)>
+<!ELEMENT HostSeverity (#PCDATA)>
+<!ELEMENT Score (#PCDATA)>
+<!ELEMENT TimeLocal (#PCDATA)>
+<!ELEMENT ConsumerPasswordProvided (#PCDATA)>
+<!ELEMENT LostPassword (#PCDATA)>
+<!ELEMENT RepeatCustomer (#PCDATA)>
+<!ELEMENT CookiesAccepted (#PCDATA)>
+<!ELEMENT ConsumerLoyalty (#PCDATA)>
+<!ELEMENT ConsumerPromotions (#PCDATA)>
+<!ELEMENT GiftWrap (#PCDATA)>
+<!ELEMENT ReturnsAccepted (#PCDATA)>
+<!ELEMENT ProductRisk (#PCDATA)>
+<!ELEMENT AppliedThreshold (#PCDATA)>
+<!ELEMENT AppliedTimeHedge (#PCDATA)>
+<!ELEMENT AppliedVelocityHedge (#PCDATA)>
+<!ELEMENT AppliedHostHedge (#PCDATA)>
+<!ELEMENT AppliedCategoryGift (#PCDATA)>
+<!ELEMENT AppliedCategoryTime (#PCDATA)>
+<!ELEMENT AppliedAVS (#PCDATA)>
+<!ELEMENT AppliedCV (#PCDATA)>
+<!ELEMENT ProfileList (Profile)+>
+<!ELEMENT Profile (ProfileMode, ProfileDecision, RuleList)>
+<!ATTLIST Profile Name CDATA #REQUIRED>
+<!ELEMENT ProfileMode (#PCDATA)>
+<!ELEMENT ProfileDecision (#PCDATA)>
+<!ELEMENT RuleList (Rule)*>
+<!ELEMENT Rule (RuleName,RuleDecision)>
+<!ELEMENT RuleName (#PCDATA)>
+<!ELEMENT RuleDecision (#PCDATA)>
