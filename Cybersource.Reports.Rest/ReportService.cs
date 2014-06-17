@@ -1,30 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-using Cybersource.Reports.Rest.TransactionDetailReport;
 
 namespace Cybersource.Reports.Rest
 {
     public class ReportService
     {
-        private readonly const string _demandUri;
+        private readonly string _demandUri;
 
-        private readonly const string _queryUri;
+        private readonly string _queryUri;
 
         public string MerchantId { get; set; }
         public AuthenticationHeaderValue Credentials { get; set; }
 
-        public ReportService(string BaseUri)
+        public ReportService(string baseUri)
         {
-            _demandUri = "https://ebctest.cybersource.com/ebctest/DownloadReport/{year}/{month}/{day}/{merchantId}/{reportName}.{reportFormat}";
-            _queryUri = "https://ebctest.cybersource.com/ebctest/Query";
+            _demandUri = baseUri + "/DownloadReport/{year}/{month}/{day}/{merchantId}/{reportName}.{reportFormat}";
+            _queryUri = baseUri + "/Query";
         }
 
         public async Task<TransactionDetailReport.Report> GetTransactionDetailReport(string transactionId)
@@ -39,11 +35,8 @@ namespace Cybersource.Reports.Rest
                 new KeyValuePair<string, string>("versionNumber", "1.5")
             });
 
-            var client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = Credentials;
-
+            var client = GetHttpClient();
             var response = await client.PostAsync(_queryUri, data);
-
             response.EnsureSuccessStatusCode();
 
             // fetch content
@@ -51,7 +44,42 @@ namespace Cybersource.Reports.Rest
 
             // fix namespaces
             content = content.Replace("tdr_1_5.dtd", "tdr_1_13.dtd");
+
+            // deserialize
             return DesearializeReport<TransactionDetailReport.Report>(content);
+        }
+
+        public async Task<PaymentEventsReport.Report> GetPaymentEventsReport(DateTime date)
+        {
+            // build uri
+            var uriParts = new
+            {
+                merchantId = MerchantId,
+                reportName = "PaymentEventsReport",
+                reportFormat = "xml",
+                year = date.ToString("yyyy"),
+                month = date.ToString("MM"),
+                day = date.ToString("dd")
+            };
+
+            var client = GetHttpClient();
+            var response = await client.GetAsync(_demandUri.FormatWith(uriParts));
+            response.EnsureSuccessStatusCode();
+
+            // fetch content
+            var content = await response.Content.ReadAsStringAsync();
+
+            // deserialize
+            return DesearializeReport<PaymentEventsReport.Report>(content);
+        }
+
+        private HttpClient GetHttpClient()
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = Credentials;
+            client.Timeout = new TimeSpan(0,0,0,10);
+
+            return client;
         }
 
         private static TReport DesearializeReport<TReport>(string xml) where TReport : class
