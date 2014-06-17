@@ -4,6 +4,8 @@ using System.Configuration;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace Cybersource.Reports.Rest
 {
@@ -12,6 +14,8 @@ namespace Cybersource.Reports.Rest
         private const string BaseUri = "https://ebctest.cybersource.com/ebctest/DownloadReport/{year}/{month}/{day}/{merchantId}/{reportName}.{reportFormat}";
 
         private const string QueryUri = "https://ebctest.cybersource.com/ebctest/Query";
+
+        private const string BaseNamespace = "https://ebctest.cybersource.com/ebctest/reports/dtd";
 
         static void Main(string[] args)
         {
@@ -44,7 +48,15 @@ namespace Cybersource.Reports.Rest
                 var response = await client.GetAsync(BaseUri.FormatWith(uriParts));
 
                 response.EnsureSuccessStatusCode();
-                Console.Write(response);
+
+                var fixRootNs = new XmlRootAttribute { ElementName = "Report", Namespace = BaseNamespace + "/per_1_2.dtd", IsNullable = true };
+
+                var stream = await response.Content.ReadAsStreamAsync();
+                var factory = new XmlSerializerFactory();
+                var serializer = factory.CreateSerializer(typeof (PaymentEventsReport.Report), fixRootNs);
+                var report = serializer.Deserialize(stream) as PaymentEventsReport.Report;
+
+                Console.Write(report);
             }
             catch (Exception e)
             {
@@ -72,7 +84,6 @@ namespace Cybersource.Reports.Rest
                 var response = await client.PostAsync(QueryUri, data);
 
                 response.EnsureSuccessStatusCode();
-                Console.Write(response);
             }
             catch (Exception e)
             {
