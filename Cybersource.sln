@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cybersource", "Cybersource\Cybersource.csproj", "{6A017EE1-0DFD-4A92-A36F-5F53B94805AB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cybersource.Soap", "Cybersource.Soap\Cybersource.Soap.csproj", "{01235EB6-90A1-4C38-9984-797C95928B31}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cybersource.Reports.Rest", "Cybersource.Reports.Rest\Cybersource.Reports.Rest.csproj", "{F517BFE5-0EAA-41B1-AB2A-D72DE422747C}"
 EndProject
 Global
@@ -15,14 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6A017EE1-0DFD-4A92-A36F-5F53B94805AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A017EE1-0DFD-4A92-A36F-5F53B94805AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A017EE1-0DFD-4A92-A36F-5F53B94805AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A017EE1-0DFD-4A92-A36F-5F53B94805AB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01235EB6-90A1-4C38-9984-797C95928B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01235EB6-90A1-4C38-9984-797C95928B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01235EB6-90A1-4C38-9984-797C95928B31}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01235EB6-90A1-4C38-9984-797C95928B31}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F517BFE5-0EAA-41B1-AB2A-D72DE422747C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F517BFE5-0EAA-41B1-AB2A-D72DE422747C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F517BFE5-0EAA-41B1-AB2A-D72DE422747C}.Release|Any CPU.ActiveCfg = Release|Any CPU
