@@ -9,7 +9,21 @@ using System.Xml.Serialization;
 
 namespace Cybersource.Reports.Rest
 {
-    public class ReportService
+    public interface IReportService
+    {
+        string MerchantId { get; set; }
+
+        Task<PaymentBatchDetailReport.Report> GetPaymentBatchDetailReport(DateTime date);
+        Task<PaymentEventsReport.Report> GetPaymentEventsReport(DateTime date);
+        Task<PaymentSubmissionDetailReport.Report> GetPaymentSubmissionDetail(DateTime date);
+        Task<SubscriptionDetailReport.Report> GetSubscriptionDetailReport(DateTime date);
+        Task<TransactionExceptionDetailReport.Report> GetTransactionExceptionDetailReport(DateTime date);
+        Task<TransactionDetailReport.Report> GetTransactionDetailReport(string transactionId);
+
+        Task<SubscriptionSearchReport.Subscriptions> GetSubscriptions();
+    }
+
+    public class ReportService : IReportService
     {
         private readonly string _clientUri;
         private readonly string _demandUri;
@@ -103,6 +117,24 @@ namespace Cybersource.Reports.Rest
 
             // deserialize
             return DeserializeReport<TransactionDetailReport.Report>(content);
+        }
+
+        public async Task<SubscriptionSearchReport.Subscriptions> GetSubscriptions()
+        {
+            throw new NotImplementedException();
+
+            var searchUrl = "https://ebctest.cybersource.com/ebctest/subscriptions/SubscriptionSearchExecute.do";
+            var exportUrl = "https://ebctest.cybersource.com/ebctest/subscriptions/SubscriptionSearchResultsExport.do?xml=Export+XML";
+
+            var client = GetHttpClient();
+            var searchResponse = await client.GetAsync(searchUrl);
+            var exportResponse = await client.GetAsync(exportUrl);
+
+            // fetch content
+            var content = await exportResponse.Content.ReadAsStringAsync();
+
+            // deserialize
+            return DeserializeReport<SubscriptionSearchReport.Subscriptions>(content);
         }
         #endregion
 
