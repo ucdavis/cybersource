@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://tempuri.org/subscriptionsearch" elementFormDefault="qualified" targetNamespace="http://tempuri.org/subscriptionsearch" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Subscriptions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="CurrencyTotals" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Subscription" />
+      </xs:sequence>
+      <xs:attribute name="startDate" type="xs:string" />
+      <xs:attribute name="endDate" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CurrencyTotals">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TotalCount" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="CurrencyTotal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TotalCount" type="xs:string" />
+  <xs:element name="CurrencyTotal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Count" />
+        <xs:element ref="CurrencyCode" />
+        <xs:element ref="Amount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Count" type="xs:string" />
+  <xs:element name="Subscription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="SubscriptionID" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Title" />
+        <xs:element ref="BillLastName" />
+        <xs:element ref="BillFirstName" />
+        <xs:element ref="SubscriptionType" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Frequency" />
+        <xs:element ref="SubscriptionAmount" />
+        <xs:element ref="SubscriptionCurrencyCode" />
+        <xs:element ref="CreateDate" />
+        <xs:element ref="StartDate" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="EndDate" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="NextScheduledPaymentDate" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="NumberOfPaymentsInRetryMode" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="CardExpirationDate" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="NumberOfSuccessfulPayments" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="AmountOfSuccessfulPayments" />
+        <xs:element ref="Status" />
+        <xs:element ref="OriginatorMID" />
+        <xs:element ref="MerchantReferenceCode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BillFirstName" type="xs:string" />
+  <xs:element name="BillLastName" type="xs:string" />
+  <xs:element name="SubscriptionID" type="xs:string" />
+  <xs:element name="Title" type="xs:string" />
+  <xs:element name="SubscriptionType" type="xs:string" />
+  <xs:element name="Frequency" type="xs:string" />
+  <xs:element name="SubscriptionAmount" type="xs:string" />
+  <xs:element name="SubscriptionCurrencyCode" type="xs:string" />
+  <xs:element name="Amount" type="xs:string" />
+  <xs:element name="CurrencyCode" type="xs:string" />
+  <xs:element name="CreateDate" type="xs:string" />
+  <xs:element name="CancelledDate" type="xs:string" />
+  <xs:element name="StartDate" type="xs:string" />
+  <xs:element name="EndDate" type="xs:string" />
+  <xs:element name="NextScheduledPaymentDate" type="xs:string" />
+  <xs:element name="NumberOfPaymentsInRetryMode" type="xs:string" />
+  <xs:element name="CardExpirationDate" type="xs:string" />
+  <xs:element name="NumberOfSuccessfulPayments" type="xs:string" />
+  <xs:element name="AmountOfSuccessfulPayments" type="xs:string" />
+  <xs:element name="Status" type="xs:string" />
+  <xs:element name="OriginatorMID" type="xs:string" />
+  <xs:element name="MerchantReferenceCode" type="xs:string" />
+</xs:schema>

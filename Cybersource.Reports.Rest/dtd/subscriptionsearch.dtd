@@ -8,7 +8,7 @@
 <!ELEMENT Count (#PCDATA)>
 <!ELEMENT Subscription (SubscriptionID, Title?, BillLastName, BillFirstName, SubscriptionType, Frequency?, SubscriptionAmount, SubscriptionCurrencyCode, CreateDate,
   StartDate, EndDate?, NextScheduledPaymentDate?, NumberOfPaymentsInRetryMode?, CardExpirationDate?,
-  NumberOfSuccessfulPayments?, AmountOfSuccessfulPayments?, Status, OriginatorMID, MerchantReferenceNumber)>
+  NumberOfSuccessfulPayments?, AmountOfSuccessfulPayments?, Status, OriginatorMID, MerchantReferenceCode)>
 <!ELEMENT BillFirstName (#PCDATA)>
 <!ELEMENT BillLastName (#PCDATA)>
 <!ELEMENT SubscriptionID (#PCDATA)>
