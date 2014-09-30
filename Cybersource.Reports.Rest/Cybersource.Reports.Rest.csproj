@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F517BFE5-0EAA-41B1-AB2A-D72DE422747C}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Cybersource.Reports.Rest</RootNamespace>
     <AssemblyName>Cybersource.Reports.Rest</AssemblyName>
@@ -32,7 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Cybersource.Reports.Rest.Sample</StartupObject>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -60,18 +61,14 @@
     <Compile Include="classes\per_1_2.cs" />
     <Compile Include="classes\psdr.cs" />
     <Compile Include="classes\sdr.cs" />
+    <Compile Include="classes\subscriptionsearch.cs" />
     <Compile Include="classes\tdr_1_13.cs" />
     <Compile Include="classes\tedr.cs" />
     <Compile Include="ReportService.cs" />
-    <Compile Include="Sample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="AppSettings.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="CreateClasses.bat" />
     <None Include="dtd\pbdr_1_2.dtd" />
     <None Include="dtd\per_1_2.dtd" />
@@ -93,6 +90,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="xsd\sdr.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="xsd\subscriptionsearch.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="xsd\tdr_1_13.xsd">
